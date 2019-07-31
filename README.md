@@ -26,28 +26,28 @@ Hackathon project involving the combination of different data sources into an ap
 - team 1
     - Kim Horas
     - Elaine Phan
-    - Mona Shivashankar
+    - Raul Jauregui
     - Catherine Lim
 - team 2
     - Nicholaus Rowe
     - Brian Chu
-    - Jae Huh
+    - Alex Vong
     - John De Dios
 - team 3
     - Rachana Heng
     - James Yamagata
-    - Raul Jauregui
-    - Alex Vong
+    - Mona Shivashankar
+    - Jae Huh
 - team 4
     - Saria Sairafe
     - Sanjay Rajpoot
     - Brandon Lee
     - Vannarith Sar
 - team 5
-    - Samantha Durant
+    - Joshua Ross
     - Tesia Tran
     - Jase Thomson
 - team 6
     - John South
-    - Joshua Ross
+    - Samantha Durant
     - Shane McGrath

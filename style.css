@@ -1,0 +1,31 @@
+        /* Optional: Makes the sample page fill the window. */
+html,
+body {
+  height: 90%;
+  margin: 0;
+  padding: 0;
+}
+#map {
+  height: 60%;
+  width: 60%;
+}
+.weatherIcon{
+  height: 10%;
+  position: relative;
+  left: 10%;
+}
+.windSpeed,
+.windDirection,
+.location,
+.weatherTemp,
+.weatherDescription {
+  height: 1%;
+  position: relative;
+  left: 12%;
+}
+.flikrApiContainer{
+  height: 40%
+}
+.flikrApiContainer img {
+  max-height:125px; margin:3px; border:1px solid #dedede;
+}

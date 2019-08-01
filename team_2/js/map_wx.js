@@ -1,5 +1,4 @@
-function mapWx(){
-  function initMap() {
+function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
       center: { lat: 38.95, lng: -94.63 },
       zoom: 4
@@ -11,12 +10,9 @@ function mapWx(){
       console.log('lat', latitude);
       console.log('long', longitude)
       weatherInfo();
+      flikrSearch();
     });
   }
-}
-
-
-
 
 function weatherInfo(){
   // url seperate then query string ?

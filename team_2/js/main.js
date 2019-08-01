@@ -4,5 +4,5 @@ var longitude = "-117.83";
 var map;
 
 function initializeApp(){
-  flikrGallery();
+
 }

@@ -5,17 +5,19 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-  <script scr="./resource/js/"></script>
-  <script scr=""></script>
-  <script src="resources/js/flikr.js"></script>
-  <script src="resources/js/map_wx.js"></script>
-  <script src="resources/js/main.js"></script>
+  <!-- <script scr="./resource/js/"></script> -->
+  <!-- <script scr=""></script> -->
+  <script src="team_2/js/flikr.js"></script>
+  <script src="team_2/js/map_wx.js"></script>
+
+
+  <!-- <script src="main.js"></script> -->
+  <!-- <script src="yelp.js"></script>
+  <script src="main.js"></script>
+  <script src="marvel.js"></script> -->
+  <script src="team_2/js/main.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_hLk7PSfWGdfOf0OCRgVdtx7zr-xzZQw&callback=initMap" async
     defer></script>
-  <script src="main.js"></script>
-  <script src="yelp.js"></script>
-  <script src="main.js"></script>
-  <script src="marvel.js"></script>
   <title>Hack2</title>
 </head>
 
@@ -33,14 +35,17 @@
   <div id="flikrApiContainer" class=flicrApiContainer>
     <h2>
       <div id="galleryTitle"></div>
+      <h5>Photo Filter?</h5>
+      <input type="text" name="photoFilter" id="photoFilter">
+      <h5>Range in Miles?</h5>
+      <input type="text" name="searchRange" id="searchRange">
     </h2>
-    <div style="clear:both;" />
-    <div id="flickr" />
+      <div style="clear:both;" />
+      <div id="flickr" />
   </div>
-
-  
-   <div class="tesiaContainer">
+  <div class="tesiaContainer">
       <button class="button">Get Comics</button>
   </div>
+
 </body>
 </html>

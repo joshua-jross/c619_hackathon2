@@ -29,6 +29,11 @@ body {
 .flikrApiContainer img {
   max-height:125px; margin:3px; border:1px solid #dedede;
 }
+/* .yelpContainer{
+  position: relative;
+  top: 50%;
+  border: 2px solid black;
+} */
 .yelpResultContainer{
   right: 0;
   height: 10vmin;
@@ -38,6 +43,8 @@ body {
 .yelpName{
   font-size: 2vmin;
   padding-top: 5px;
+  text-decoration: none;
+  color: black;
 }
 .yelpAddress{
   font-size: 1.5vmin;
@@ -58,4 +65,7 @@ body {
   display: flex;
   float: left;
   padding-right: 3.5%;
+}
+.yelpInputBox{
+  border-radius: 80%;
 }

@@ -6,13 +6,30 @@ class yelp {
     this.yelpSuccess = this.yelpSuccess.bind(this);
     this.yelpError = this.yelpError.bind(this);
     this.render = this.render.bind(this);
-    this.body = $("body");
+    this.yelpSearch = this.yelpSearch.bind(this);
+    this.applyClickHandler = this.applyClickHandler.bind(this);
+    this.yelpContainer = $(".yelpContainer");
+    this.yelpInputBox;
     this.location = "Davis";
+    this.searchValue = "coffee";
     this.yelpName;
     this.yelpAddress;
     this.yelpRating;
     this.yelpReview;
     this.yelpPrice;
+
+  }
+  applyClickHandler(){
+    $("#yelpButton").on("click", this.yelpSearch);
+  }
+  yelpSearch(){
+    if (this.yelpInputBox.val() === ""){
+      console.log("nothing to update")
+    } else {
+      this.searchValue = this.yelpInputBox.val();
+      console.log("clickhappened");
+      this.getYelpData();
+    }
   }
   getYelpData(){
     this.yelpAjaxConfig = {
@@ -24,7 +41,7 @@ class yelp {
       },
       data: {
         'location': this.location,
-        'term': "coffee"
+        'term': this.searchValue
       },
       success: this.yelpSuccess,
       error: this.yelpError
@@ -39,16 +56,25 @@ class yelp {
     this.yelpListResults = response.businesses;
     console.log(this.yelpListResults);
     this.render();
+    this.applyClickHandler();
   }
   yelpError(response, status) {
     console.log("Error response", response);
     console.log("Error status", status);
   }
   render(){
-
+    this.yelpContainer.empty();
     var currentResult = 0;
     var lengthOfResults = this.yelpListResults.length;
     console.log(this.yelpListResults[currentResult].image_url)
+    this.yelpInputBox = $("<input>", {
+      class: "yelpInput",
+    });
+    var yelpSearchButton = $("<button>", {
+      id: "yelpButton",
+      text: "Search"
+    });
+    this.yelpContainer.append(this.yelpInputBox, yelpSearchButton);
     while (currentResult < lengthOfResults){
       this.yelpName = (currentResult+1) + ". " + this.yelpListResults[currentResult].name;
       this.yelpAddress = this.yelpListResults[currentResult].location.display_address;
@@ -76,9 +102,11 @@ class yelp {
       var resultContainer = $("<div>", {
         class: "yelpResultContainer"
       });
-      var resultName = $("<div>", {
+      var resultName = $("<a>", {
         class: "yelpName",
-        text: this.yelpName
+        text: this.yelpName,
+        target: "_blank",
+        href: this.yelpListResults[currentResult].url
       });
       var resultAddress = $("<div>", {
         class: "yelpAddress",
@@ -101,7 +129,8 @@ class yelp {
       resultPhoto.attr("src", this.yelpListResults[currentResult].image_url)
       resultPhotoDiv.append(resultPhoto);
       resultContainer.append(resultPhotoDiv, resultName, resultAddress, resultRatingReviewPrice, resultCategory);
-      this.body.append(resultContainer);
+
+      this.yelpContainer.append(resultContainer);
       currentResult++;
     }
   }

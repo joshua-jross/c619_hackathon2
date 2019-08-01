@@ -8,11 +8,14 @@ var rangeFilter = 50;
 
 
 function initializeApp(){
-  getSuperheroes();
-  getAsteroids();
-  var yelpApi = new yelp();
-  yelpApi.getYelpData();
+  var hero = new Superhero();
+  var superheroes = hero.getSuperheroes();
+
+  var nasa = new Nasa();
+  var asteroids = nasa.getAsteroids();
+
+  var yelpApi = new Yelp();
+  var yelpDataAccess = yelpApi.getYelpData();
 
   addClickHandlers();
-
 }

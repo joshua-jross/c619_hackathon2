@@ -1,5 +1,5 @@
 
-class yelp {
+class Yelp{
   constructor(){
     this.yelpAjaxConfig ={};
     // this.yelpListResults;
@@ -66,7 +66,6 @@ class yelp {
     console.log("Error response", response);
     console.log("Error status", status);
   }
-
   render(){
     this.yelpContainer.empty();
     var currentResult = 0;

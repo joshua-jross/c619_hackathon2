@@ -1,3 +1,4 @@
+
 class yelp {
   constructor(){
     this.yelpAjaxConfig ={};

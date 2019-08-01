@@ -29,3 +29,33 @@ body {
 .flikrApiContainer img {
   max-height:125px; margin:3px; border:1px solid #dedede;
 }
+.yelpResultContainer{
+  right: 0;
+  height: 10vmin;
+  width: 50vmin;
+  border: 1px solid lightgrey;
+}
+.yelpName{
+  font-size: 2vmin;
+  padding-top: 5px;
+}
+.yelpAddress{
+  font-size: 1.5vmin;
+  color: grey;
+}
+.yelpRatingReviewPrice{
+  font-size: 1.5vmin;
+   color: grey;
+}
+.yelpCategory{
+  font-size: 1.75vmin;
+  color: grey;
+  text-transform: uppercase;
+}
+.yelpPhoto{
+  height: 10vmin;
+  width: 10vmin;
+  display: flex;
+  float: left;
+  padding-right: 3.5%;
+}

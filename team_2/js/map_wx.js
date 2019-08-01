@@ -1,6 +1,5 @@
 
-
-  function initMap() {
+function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
       center: { lat: 38.95, lng: -94.63 },
       zoom: 4
@@ -12,12 +11,22 @@
       console.log('lat', latitude);
       console.log('long', longitude)
       weatherInfo();
+      flikrSearch();
     });
   }
 
-
-
-
+function addClickHandlers(){
+  $('#submitPhotoFilter').on('click', function () {
+    photoFilter = $('#photoFilter').val();
+    console.log('clicked sumbit photoFilter', this);
+    console.log('photoFilter :', photoFilter);
+  });
+$('#submitRangeFilter').on('click', function () {
+  rangeFilter = $('#rangeFilter').val();
+  console.log('clicked sumbit rangeFilter', this);
+  console.log('rangeFilter :', rangeFilter);
+});
+}
 
 function weatherInfo(){
   // url seperate then query string ?

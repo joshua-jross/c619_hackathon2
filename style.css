@@ -2,7 +2,7 @@
 html,
 body {
   height: 90%;
-  margin: 0;
+  margin: 50px;
   padding: 0;
 }
 #map {
@@ -32,4 +32,44 @@ body {
 
 .tesiaContainer{
   display: inline-block;
+
+/* .yelpContainer{
+  position: relative;
+  top: 50%;
+  border: 2px solid black;
+} */
+.yelpResultContainer{
+  right: 0;
+  height: 10vmin;
+  width: 50vmin;
+  border: 1px solid lightgrey;
+}
+.yelpName{
+  font-size: 2vmin;
+  padding-top: 5px;
+  text-decoration: none;
+  color: black;
+}
+.yelpAddress{
+  font-size: 1.5vmin;
+  color: grey;
+}
+.yelpRatingReviewPrice{
+  font-size: 1.5vmin;
+   color: grey;
+}
+.yelpCategory{
+  font-size: 1.75vmin;
+  color: grey;
+  text-transform: uppercase;
+}
+.yelpPhoto{
+  height: 10vmin;
+  width: 10vmin;
+  display: flex;
+  float: left;
+  padding-right: 3.5%;
+}
+.yelpInputBox{
+  border-radius: 80%;
 }

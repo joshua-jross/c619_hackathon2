@@ -35,10 +35,12 @@
   <div id="flikrApiContainer" class=flicrApiContainer>
     <h2>
       <div id="galleryTitle"></div>
-      <h5>Photo Filter?</h5>
-      <input type="text" name="photoFilter" id="photoFilter">
-      <h5>Range in Miles?</h5>
-      <input type="text" name="searchRange" id="searchRange">
+        <div>Filter</div>
+        <input type="text" id="photoFilter">
+        <button id="submitPhotoFilter">Submit</button>
+        <div>Range</div>
+        <input type="text" id="rangeFilter">
+        <button id="submitRangeFilter">Submit</button>
     </h2>
       <div style="clear:both;" />
       <div id="flickr" />
@@ -46,6 +48,5 @@
   <div class="tesiaContainer">
       <button class="button">Get Comics</button>
   </div>
-
 </body>
 </html>

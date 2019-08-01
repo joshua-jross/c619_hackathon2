@@ -10,7 +10,8 @@ class yelp {
     this.yelpSearch = this.yelpSearch.bind(this);
     this.applyClickHandler = this.applyClickHandler.bind(this);
     this.yelpContainer = $(".yelpContainer");
-    this.yelpInputBox;
+    this.yelpInput = $(".yelpBox");
+    this.yelpInputBox = $(".yelpInput");
     this.location = "Davis";
     this.searchValue = "coffee";
     this.yelpName;
@@ -31,7 +32,6 @@ class yelp {
       console.log("clickhappened");
       this.getYelpData();
     }
-
   }
   getYelpData(){
     this.yelpAjaxConfig = {
@@ -42,8 +42,10 @@ class yelp {
         "Authorization": "Bearer K86dXVGhsx9t-SEYXVTpp6lJr2CBl3aLKBcXnOMdf8tUp0mBe9rzWbSu-5LGORVbqnNCWrAMngd0-VvR7IugL9R-fwgPeEFOhDeFo_APDkIhIlTICac9Omtp_gNBXXYx"
       },
       data: {
-        'location': this.location,
-        'term': this.searchValue
+        // 'location': this.location,
+        'term': this.searchValue,
+        'latitude': latitude,
+        'longitude': longitude
       },
       success: this.yelpSuccess,
       error: this.yelpError
@@ -64,20 +66,12 @@ class yelp {
     console.log("Error response", response);
     console.log("Error status", status);
   }
-  
+
   render(){
     this.yelpContainer.empty();
     var currentResult = 0;
     var lengthOfResults = this.yelpListResults.length;
-    console.log(this.yelpListResults[currentResult].image_url)
-    this.yelpInputBox = $("<input>", {
-      class: "yelpInput",
-    });
-    var yelpSearchButton = $("<button>", {
-      id: "yelpButton",
-      text: "Search"
-    });
-    this.yelpContainer.append(this.yelpInputBox, yelpSearchButton);
+
     while (currentResult < lengthOfResults){
       this.yelpName = (currentResult+1) + ". " + this.yelpListResults[currentResult].name;
       this.yelpAddress = this.yelpListResults[currentResult].location.display_address;

@@ -10,10 +10,9 @@ var rangeFilter = 50;
 function initializeApp(){
   getSuperheroes();
   getAsteroids();
-
   var yelpApi = new yelp();
-  var yelpDataAccess = yelpApi.getYelpData();
-  
+  yelpApi.getYelpData();
+
   addClickHandlers();
 
 }

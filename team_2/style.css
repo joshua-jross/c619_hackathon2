@@ -1,48 +1,134 @@
         /* Optional: Makes the sample page fill the window. */
-html,
-body {
-  height: 90%;
-  margin: 50px;
-  padding: 0;
+.upperContainer{
+  border: 1px solid black;
+  background-color: lightcoral;
+  height: 45vh;
 }
-#map {
-  height: 60%;
-  width: 60%;
+/* font-family: 'Rajdhani', sans-serif;
+font-family: 'Bangers', cursive; */
+.mapContainer,
+.superHeroBox,
+.asteroidBox{
+  border: 1px solid black;
+  height: 95%;
+  display: inline-block;
+  /* padding-left: 2vw; */
+}
+.superHeroBox{
+  width: 20vw;
+}
+.mapContainer,
+.superHeroBox{
+  background-color: #065d52;
+}
+.asteroidBox{
+  background-color: #9a261c;
+  width: 20vw;
+}
+.asteroidContainer{
+  background-color: white;
+  height: 90%;
+  width: 90%;
+}
+.googleMap {
+  height: 100%;
+  width: 50vw;
+  /* padding: 5%; */
+}
+.superheroContainer > img{
+  height:1vh;
+  width: 1vw;
+}
+.yelpOutput{
+  position: absolute;
+}
+
+
+
+
+.middleContainer{
+  border: 1px solid black;
+  background-color: #ddb330;
+  height: 20vh;
+}
+.flickrInput,
+.yelpBox,
+.weatherDisplay,
+.instructionDisplay{
+  border: 1px solid black;
+  height: 95%;
+  display: inline-block;
+  padding-left: 2vw;
+}
+.flickrInput{
+  /* background-color: pink; */
+  width: 24vw;
+}
+.yelpBox{
+  /* background-color: orange; */
+  width: 24vw;
+}
+.weatherDisplay{
+  /* background-color: yellow; */
+  width: 20vw;
+}
+.instructionDisplay{
+  background-color: #9a261c;
+  width: 20vw;
+}
+
+
+
+
+
+.lowerContainer{
+  border: 1px solid black;
+  background-color: lightgreen;
+  height: 45vh;
+}
+.flickOutput,
+.yelpOutput {
+  border: 1px solid black;
+  height: 95%;
+  display: inline-block;
+  padding-left: 2vw;
+}
+.flickOutput{
+  background-color: #065d52;
+  width: 70vw;
+}
+.yelpOutput{
+  background-color: #9a261c;
+  width: 20vw;
 }
 .weatherIcon{
-  height: 10%;
+  height: 1%;
   position: relative;
-  left: 10%;
+  /* left: 10%; */
 }
-.windSpeed,
-.windDirection,
 .location,
 .weatherTemp,
 .weatherDescription {
-  height: 1%;
-  position: relative;
-  left: 12%;
+/* display: inline-block; */
 }
+
+
+
+
 .flikrApiContainer{
   height: 40%
 }
-.flikrApiContainer img {
-  max-height:125px; margin:3px; border:1px solid #dedede;
+.flickOutput img {
+  max-width: 250px;
+  margin:3px;
+  border:6px solid black;
+/* .flikrApiContainer  */
 }
-
-.tesiaContainer{
-  display: inline-block;
-
-/* .yelpContainer{
-  position: relative;
-  top: 50%;
-  border: 2px solid black;
-} */
 .yelpResultContainer{
   right: 0;
   height: 10vmin;
   width: 50vmin;
-  border: 1px solid lightgrey;
+  border: 2px solid white;
 }
 .yelpName{
   font-size: 2vmin;
@@ -70,6 +156,7 @@ body {
   float: left;
   padding-right: 3.5%;
 }
-.yelpInputBox{
-  border-radius: 80%;
+
+.tesiaContainer{
+  display: inline-block;
 }

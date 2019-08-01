@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Hackathon 2</title>
   <link href="https://fonts.googleapis.com/css?family=Bangers|Rajdhani&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="js/flikr.js"></script>
   <script src="js/map_wx.js"></script>
@@ -12,39 +12,56 @@
   <script src="js/yelp.js"></script>
   <script src="js/main.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_hLk7PSfWGdfOf0OCRgVdtx7zr-xzZQw&callback=initMap" async defer></script>
-
-  <title>Hackathon 2</title>
 </head>
 
 <body>
-<!-- <div id="mapWxAPiContainer" class="mapWxAPiContainer"> -->
-  <div id="map"></div>
-  <div class="weatherContainer">
-    <img  class="weatherIcon" src="" alt="">
-    <p class="location"></p>
-    <p class="weatherTemp"></p>
-    <p class="weatherDescription"></p>
-    <p class="windSpeed"></p>
-    <p class="windDirection"></p>
+  <div class="upperContainer">
+    <div class="mapContainer">
+      <div class="googleMap" id="map"></div>
+    </div>
+    <div class="asteroidBox">
+      <div class="asteroidContainer"></div>
+    </div>
+    <div class="superHeroBox">
+        <!-- <div class="superheroContainer"></div> -->
+    </div>
   </div>
-  <div id="flikrApiContainer" class=flicrApiContainer>
-    <h2>
-      <div id="galleryTitle"></div>
-      <div>Filter</div>
-      <input type="text" id="photoFilter">
-      <button id="submitPhotoFilter">Submit</button>
-      <div>Range</div>
-      <input type="text" id="rangeFilter">
-      <button id="submitRangeFilter">Submit</button>
-    </h2>
-    <div style="clear:both;"></div>
-    <div id="flickr"></div>
+
+  <div class="middleContainer">
+      <div class="flickrInput">
+          <div>Filter</div>
+          <input type="text" id="photoFilter">
+          <button id="submitPhotoFilter">Submit</button>
+          <div>Range</div>
+          <input type="text" id="rangeFilter">
+          <button id="submitRangeFilter">Submit</button>
+      </div>
+      <div class="yelpBox">
+        <input class="yelpInput">
+        <button id="yelpButton">Submit</button>
+      </div>
+      <div class="weatherDisplay">
+        <div class="weatherContainer">
+          <img class="weatherIcon" src="http://openweathermap.org/img/w/50d.png" alt="">
+          <div class="weatherTemp">-20F</div>
+          <div class="weatherDescription">Clear</div>
+          <div class="location">Area 51</div>
+        </div>
+      </div>
+      <div class="instructionDisplay"></div>
   </div>
-<!-- </div> -->
+  <div class="lowerContainer">
+    <div class="flickOutput">
+      <div id="flikrApiContainer" class=flicrApiContainer>
+        <div style="clear:both;"></div>
+        <div id="flickr"></div>
+      </div>
+    </div>
+    <div class="yelpOutput">
+      <div class="yelpContainer"></div>
+    </div>
+  </div>
+  <!-- <div id="mapWxAPiContainer" class="mapWxAPiContainer"> -->
 
-  <div class="asteroidContainer"></div>
-  <div class="superheroContainer"></div>
-
-  <div class="yelpContainer"></div>
 </body>
 </html>

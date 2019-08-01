@@ -9,9 +9,12 @@ function initMap() {
       latitude = e.latLng.lat();
       longitude = e.latLng.lng();
       console.log('lat', latitude);
-      console.log('long', longitude)
+      console.log('long', longitude);
+
       weatherInfo();
       flikrSearch();
+
+
     });
   }
 

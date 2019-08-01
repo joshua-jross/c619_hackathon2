@@ -29,6 +29,10 @@ body {
 .flikrApiContainer img {
   max-height:125px; margin:3px; border:1px solid #dedede;
 }
+
+.tesiaContainer{
+  display: inline-block;
+
 /* .yelpContainer{
   position: relative;
   top: 50%;

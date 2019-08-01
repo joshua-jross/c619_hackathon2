@@ -14,6 +14,7 @@ function initMap() {
       flikrSearch();
     });
   }
+
 function addClickHandlers(){
   $('#submitPhotoFilter').on('click', function () {
     photoFilter = $('#photoFilter').val();
@@ -26,6 +27,7 @@ $('#submitRangeFilter').on('click', function () {
   console.log('rangeFilter :', rangeFilter);
 });
 }
+
 function weatherInfo(){
   // url seperate then query string ?
       // rewrite with jquery.ajax getJSON is shorthand

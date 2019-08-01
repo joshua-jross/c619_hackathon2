@@ -1,3 +1,4 @@
+
 function flikrSearch() {
   var apiKey = "98721ce410e380c81dc67cf4214fd2a6";
   var flikrUrl = "https://api.flickr.com/services/rest/?method=flickr.photos.search"
@@ -24,6 +25,7 @@ function flikrSearch() {
 
   $.ajax(settings).done(function (data) {
     console.log(data);
+
 
     // $("#galleryTitle").append("Road Trip");
     // $("#galleryTitle").append(data.photos.photo[0].title + " SEARCH TEST");

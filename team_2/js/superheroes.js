@@ -3,6 +3,7 @@ var randomNum = Math.floor((Math.random() * 731) + 1);
 
 function getSuperheroes(){
   console.log("getSuperheroes called");
+
   var superheroesObject = {
     url: "superheroapi.php",
     method: "get",

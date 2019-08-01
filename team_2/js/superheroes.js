@@ -22,7 +22,15 @@ function getSuperheroes(){
       var imageDiv = $("<div>");
       imageDiv.append(image);
 
-      $(".superheroContainer").append(imageDiv);
+      var superheroName = response.name;
+      var nameDiv = $("<div>");
+      nameDiv.text(superheroName);
+
+      var superheroBase = response.work.base;
+      var baseDiv = $("<div>");
+      baseDiv.text(superheroBase);
+
+      $(".superheroContainer").append(imageDiv, nameDiv, baseDiv);
     },
     error: function(response){
       console.log("error");

@@ -1,5 +1,5 @@
 
-class yelp {
+class Yelp{
   constructor(){
     this.yelpAjaxConfig ={};
     // this.yelpListResults;

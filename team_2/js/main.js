@@ -6,5 +6,9 @@ var photoFilter = "cats"
 var rangeFilter = 50;
 
 function initializeApp(){
+
+  var yelpApi = new yelp();
+  var yelpDataAccess = yelpApi.getYelpData();
+  
   addClickHandlers();
 }

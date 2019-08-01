@@ -13,7 +13,6 @@ function initializeApp(){
 
   var yelpApi = new yelp();
   var yelpDataAccess = yelpApi.getYelpData();
-  
-  addClickHandlers();
 
+  addClickHandlers();
 }

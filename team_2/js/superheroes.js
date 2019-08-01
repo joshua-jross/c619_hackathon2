@@ -29,5 +29,4 @@ function getSuperheroes(){
     }
   }
   $.ajax(superheroesObject);
-
 }

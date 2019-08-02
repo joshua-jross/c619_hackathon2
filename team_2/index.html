@@ -2,10 +2,12 @@
 <html>
 <head>
   <title>Hackathon 2</title>
+
   <link href="https://fonts.googleapis.com/css?family=Bangers|Rajdhani&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-  <script src="js/flikr.js"></script>
+  <script src="js/flickr.js"></script>
   <script src="js/map_wx.js"></script>
   <script src="js/nasa.js"></script>
   <script src="js/superheroes.js"></script>
@@ -19,11 +21,14 @@
     <div class="mapContainer">
       <div class="googleMap" id="map"></div>
     </div>
+
     <div class="asteroidBox">
+      <div class="asteroidTitle">The Number of Asteroids Near Earth Yesterday:</div>
       <div class="asteroidContainer"></div>
     </div>
-    <div class="superHeroBox">
-        <!-- <div class="superheroContainer"></div> -->
+
+    <div class="superheroBox">
+      <div class="superheroContainer"></div>
     </div>
   </div>
 
@@ -48,21 +53,24 @@
           <div class="weatherDescription">Clear</div>
           <div class="location">Area 51</div>
         </div>
+
       </div>
-      <div class="instructionDisplay"></div>
+    </div>
+
+    <div class="instructionDisplay"></div>
   </div>
+
   <div class="lowerContainer">
-    <div class="flickOutput">
-      <div id="flikrApiContainer" class=flicrApiContainer>
+    <div class="flickrOutput">
+      <div id="flickrApiContainer" class=flickrApiContainer>
         <div style="clear:both;"></div>
         <div id="flickr"></div>
       </div>
     </div>
+
     <div class="yelpOutput">
       <div class="yelpContainer"></div>
     </div>
   </div>
-  <!-- <div id="mapWxAPiContainer" class="mapWxAPiContainer"> -->
-
 </body>
 </html>

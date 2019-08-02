@@ -36,16 +36,31 @@ font-family: 'Bangers', cursive; */
 .superHeroBox{
   width: 24.7vw;
   margin-left: 25px;
+
 }
+
+.superheroContainer{
+  font-family: 'Bangers', cursive;
+  font-size: 1em;
+}
+
 .mapContainer,
-.superHeroBox{
+.superheroBox{
   background-color: #065d52;
 }
+
 .asteroidBox{
   background-color: #9a261c;
   width: 15.3vw;
   /* border: 1px solid black; */
 }
+
+.asteroidTitle{
+  font-family: 'Bangers', cursive;
+  font-size: 2em;
+  text-align: center;
+}
+
 .asteroidContainer{
   background-color: #9a261c;
   border: 4px solid black;
@@ -53,16 +68,20 @@ font-family: 'Bangers', cursive; */
   width: 90%;
   margin-top: 12px;
   margin-left: 9px;
+
 }
+
 .googleMap {
   height: 100%;
-  width: 50vw;
+  width: 55vw;
   /* padding: 5%; */
 }
-.superheroContainer > img{
-  height:1vh;
-  width: 1vw;
+
+img{
+  height: auto;
+  max-width: 100%;
 }
+
 .yelpOutput{
   position: absolute;
 }
@@ -86,41 +105,43 @@ font-family: 'Bangers', cursive; */
   padding-left: 2vw;
 
 }
+
 .flickrInput{
   /* background-color: pink; */
   width: 24vw;
   padding: 50px;
 }
+
 .yelpBox{
   /* background-color: orange; */
   width: 24vw;
 }
+
 .weatherDisplay{
   /* background-color: yellow; */
   width: 15vw;
 }
+
 .instructionDisplay{
   /* background-color: #9a261c; */
   width: 22.1vw;
 }
-
-
-
-
 
 .lowerContainer{
   /* border: 1px solid black; */
   /* background-color: lightgreen; */
   height: 45vh;
 }
-.flickOutput,
+
+.flickrOutput,
 .yelpOutput {
   border: 1px solid black;
   height: 95%;
   display: inline-block;
   padding-left: 2vw;
 }
-.flickOutput{
+
+.flickrOutput{
   background-color: #065d52;
   width: 65vw;
   /* margin: 25px; */
@@ -129,6 +150,7 @@ font-family: 'Bangers', cursive; */
   height: 10000px;
 
 }
+
 .yelpOutput{
   background-color: #9a261c;
   width: 23.8vw;
@@ -136,67 +158,70 @@ font-family: 'Bangers', cursive; */
   margin-left: 25px;
   margin-top: 25px;
 }
+
 .weatherIcon{
   height: 1%;
   position: relative;
   /* left: 10%; */
 }
+
 .location,
 .weatherTemp,
 .weatherDescription {
 /* display: inline-block; */
 }
 
-
-
-
-.flikrApiContainer{
+.flickrApiContainer{
   height: 40%
 }
-.flickOutput img {
+
+.flickrOutput img {
   max-width: 250px;
   margin:3px;
   border:6px solid black;
-/* .flikrApiContainer  */
+/* .flickrApiContainer  */
 }
+
 .yelpResultContainer{
   right: 0;
   height: 10vmin;
   width: 48vmin;
   border: 2px solid black;
 }
+
 .yelpName{
   font-size: 2vmin;
   padding-top: 5px;
   text-decoration: none;
   color: black;
 }
+
 .yelpAddress{
   font-size: 1.5vmin;
   color: grey;
 }
+
 .yelpRatingReviewPrice{
   font-size: 1.5vmin;
    color: grey;
 }
+
 .yelpName,
 .yelpAddress,
 .yelpRatingReviewPrice,
 .yelpCategory {
   color: white;
 }
+
 .yelpCategory{
   font-size: 1.75vmin;
   text-transform: uppercase;
 }
+
 .yelpPhoto{
   height: 10vmin;
   width: 10vmin;
   display: flex;
   float: left;
   padding-right: 3.5%;
-}
-
-.tesiaContainer{
-  display: inline-block;
 }

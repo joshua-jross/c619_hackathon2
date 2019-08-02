@@ -46,11 +46,11 @@ class Superhero{
 
     this.superheroName = this.superheroObject.name;
     var nameDiv = $("<div>");
-    nameDiv.text(this.superheroName);
+    nameDiv.text("Hero Name: " + this.superheroName);
 
     this.superheroBase = this.superheroObject.work.base;
     var baseDiv = $("<div>");
-    baseDiv.text(this.superheroBase);
+    baseDiv.text("Home Base: " + this.superheroBase);
 
     $(".superheroContainer").append(imageDiv);
     $(".instructionDisplay").append(nameDiv, baseDiv);

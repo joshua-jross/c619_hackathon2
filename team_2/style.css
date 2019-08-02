@@ -123,8 +123,12 @@ img{
 }
 
 .instructionDisplay{
-  /* background-color: #9a261c; */
+  background-color: #9a261c;
   width: 22.1vw;
+  vertical-align: top;
+  font-family: 'Bangers', cursive;
+  font-size: 2em;
+  text-align: center;
 }
 
 .lowerContainer{

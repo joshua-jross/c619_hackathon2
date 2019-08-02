@@ -52,6 +52,7 @@ class Superhero{
     var baseDiv = $("<div>");
     baseDiv.text(this.superheroBase);
 
-    $(".superheroContainer").append(imageDiv, nameDiv, baseDiv);
+    $(".superheroContainer").append(imageDiv);
+    $(".instructionDisplay").append(nameDiv, baseDiv);
   }
 }

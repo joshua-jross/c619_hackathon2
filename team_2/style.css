@@ -1,56 +1,76 @@
         /* Optional: Makes the sample page fill the window. */
 .upperContainer{
-  border: 1px solid black;
-  background-color: lightcoral;
-  height: 45vh;
+  /* border: 1px solid black; */
+  /* background-color: lightcoral; */
+  height: 70vh;
 }
 /* font-family: 'Rajdhani', sans-serif;
 font-family: 'Bangers', cursive; */
 .mapContainer,
-.superHeroBox,
+.superheroBox,
 .asteroidBox{
   border: 1px solid black;
-  height: 95%;
+  height: 100%;
   display: inline-block;
   /* padding-left: 2vw; */
 }
-.superHeroBox{
-  width: 20vw;
+
+.superheroBox{
+  width: 21vw;
+  vertical-align: top;
 }
+
+.superheroContainer{
+  font-family: 'Bangers', cursive;
+  font-size: 1em;
+}
+
 .mapContainer,
-.superHeroBox{
+.superheroBox{
   background-color: #065d52;
 }
+
 .asteroidBox{
   background-color: #9a261c;
   width: 20vw;
+  vertical-align: top;
 }
+
+.asteroidTitle{
+  font-family: 'Bangers', cursive;
+  font-size: 2em;
+  text-align: center;
+}
+
 .asteroidContainer{
-  background-color: white;
+  /* background-color: white; */
   height: 90%;
   width: 90%;
+  font-family: 'Bangers', cursive;
+  font-size: 1em;
 }
+
 .googleMap {
   height: 100%;
-  width: 50vw;
+  width: 55vw;
   /* padding: 5%; */
 }
-.superheroContainer > img{
-  height:1vh;
-  width: 1vw;
+
+img{
+  height: auto;
+  max-width: 100%;
 }
+
 .yelpOutput{
   position: absolute;
 }
-
-
-
 
 .middleContainer{
   border: 1px solid black;
   background-color: #ddb330;
   height: 20vh;
 }
+
 .flickrInput,
 .yelpBox,
 .weatherDisplay,
@@ -60,103 +80,111 @@ font-family: 'Bangers', cursive; */
   display: inline-block;
   padding-left: 2vw;
 }
+
 .flickrInput{
   /* background-color: pink; */
   width: 24vw;
 }
+
 .yelpBox{
   /* background-color: orange; */
   width: 24vw;
 }
+
 .weatherDisplay{
   /* background-color: yellow; */
   width: 20vw;
 }
+
 .instructionDisplay{
   background-color: #9a261c;
   width: 20vw;
+  vertical-align: top;
+  font-family: 'Bangers', cursive;
+  font-size: 2em;
 }
-
-
-
-
 
 .lowerContainer{
   border: 1px solid black;
   background-color: lightgreen;
   height: 45vh;
 }
-.flickOutput,
+
+.flickrOutput,
 .yelpOutput {
   border: 1px solid black;
   height: 95%;
   display: inline-block;
   padding-left: 2vw;
 }
-.flickOutput{
+
+.flickrOutput{
   background-color: #065d52;
   width: 70vw;
 }
+
 .yelpOutput{
   background-color: #9a261c;
   width: 20vw;
 }
+
 .weatherIcon{
   height: 1%;
   position: relative;
   /* left: 10%; */
 }
+
 .location,
 .weatherTemp,
 .weatherDescription {
 /* display: inline-block; */
 }
 
-
-
-
-.flikrApiContainer{
+.flickrApiContainer{
   height: 40%
 }
-.flickOutput img {
+
+.flickrOutput img {
   max-width: 250px;
   margin:3px;
   border:6px solid black;
-/* .flikrApiContainer  */
+/* .flickrApiContainer  */
 }
+
 .yelpResultContainer{
   right: 0;
   height: 10vmin;
   width: 50vmin;
   border: 2px solid white;
 }
+
 .yelpName{
   font-size: 2vmin;
   padding-top: 5px;
   text-decoration: none;
   color: black;
 }
+
 .yelpAddress{
   font-size: 1.5vmin;
   color: grey;
 }
+
 .yelpRatingReviewPrice{
   font-size: 1.5vmin;
    color: grey;
 }
+
 .yelpCategory{
   font-size: 1.75vmin;
   color: grey;
   text-transform: uppercase;
 }
+
 .yelpPhoto{
   height: 10vmin;
   width: 10vmin;
   display: flex;
   float: left;
   padding-right: 3.5%;
-}
-
-.tesiaContainer{
-  display: inline-block;
 }

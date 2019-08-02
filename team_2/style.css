@@ -1,23 +1,42 @@
         /* Optional: Makes the sample page fill the window. */
+body{
+  /* border: 6px solid black;
+  font-size: 0;
+  padding: 0; */
+}
 .upperContainer{
   /* border: 1px solid black; */
   /* background-color: lightcoral; */
   height: 70vh;
+  margin-left: 25px;
+  margin-top: 25px;
+  margin-right: 25px;
 }
 /* font-family: 'Rajdhani', sans-serif;
 font-family: 'Bangers', cursive; */
-.mapContainer,
-.superheroBox,
+.mapContainer{
+  /* border: 1px solid black; */
+  height: 98%;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 25px;
+  margin-left:2px;
+  margin-top: 2px;
+  border: 4px solid black;
+
+}
+.superHeroBox,
 .asteroidBox{
-  border: 1px solid black;
+  /* border: 1px solid black; */
   height: 100%;
   display: inline-block;
+  vertical-align: top;
   /* padding-left: 2vw; */
 }
+.superHeroBox{
+  width: 24.7vw;
+  margin-left: 25px;
 
-.superheroBox{
-  width: 21vw;
-  vertical-align: top;
 }
 
 .superheroContainer{
@@ -32,8 +51,8 @@ font-family: 'Bangers', cursive; */
 
 .asteroidBox{
   background-color: #9a261c;
-  width: 20vw;
-  vertical-align: top;
+  width: 15.3vw;
+  /* border: 1px solid black; */
 }
 
 .asteroidTitle{
@@ -43,11 +62,13 @@ font-family: 'Bangers', cursive; */
 }
 
 .asteroidContainer{
-  /* background-color: white; */
+  background-color: #9a261c;
+  border: 4px solid black;
   height: 90%;
   width: 90%;
-  font-family: 'Bangers', cursive;
-  font-size: 1em;
+  margin-top: 12px;
+  margin-left: 9px;
+
 }
 
 .googleMap {
@@ -66,7 +87,10 @@ img{
 }
 
 .middleContainer{
-  border: 1px solid black;
+  margin-top: 25px;
+  margin-right: 25px;
+  margin-left: 25px;
+  /* border: 1px solid black; */
   background-color: #ddb330;
   height: 20vh;
 }
@@ -75,15 +99,17 @@ img{
 .yelpBox,
 .weatherDisplay,
 .instructionDisplay{
-  border: 1px solid black;
+  /* border: 1px solid black; */
   height: 95%;
   display: inline-block;
   padding-left: 2vw;
+
 }
 
 .flickrInput{
   /* background-color: pink; */
   width: 24vw;
+  padding: 50px;
 }
 
 .yelpBox{
@@ -93,12 +119,12 @@ img{
 
 .weatherDisplay{
   /* background-color: yellow; */
-  width: 20vw;
+  width: 15vw;
 }
 
 .instructionDisplay{
   background-color: #9a261c;
-  width: 20vw;
+  width: 22.1vw;
   vertical-align: top;
   font-family: 'Bangers', cursive;
   font-size: 2em;
@@ -106,8 +132,8 @@ img{
 }
 
 .lowerContainer{
-  border: 1px solid black;
-  background-color: lightgreen;
+  /* border: 1px solid black; */
+  /* background-color: lightgreen; */
   height: 45vh;
 }
 
@@ -121,12 +147,20 @@ img{
 
 .flickrOutput{
   background-color: #065d52;
-  width: 70vw;
+  width: 65vw;
+  /* margin: 25px; */
+  margin-top: 25px;
+  margin-left: 25px;
+  height: 10000px;
+
 }
 
 .yelpOutput{
   background-color: #9a261c;
-  width: 20vw;
+  width: 23.8vw;
+  height: 10000px;
+  margin-left: 25px;
+  margin-top: 25px;
 }
 
 .weatherIcon{
@@ -155,8 +189,8 @@ img{
 .yelpResultContainer{
   right: 0;
   height: 10vmin;
-  width: 50vmin;
-  border: 2px solid white;
+  width: 48vmin;
+  border: 2px solid black;
 }
 
 .yelpName{
@@ -176,9 +210,15 @@ img{
    color: grey;
 }
 
+.yelpName,
+.yelpAddress,
+.yelpRatingReviewPrice,
+.yelpCategory {
+  color: white;
+}
+
 .yelpCategory{
   font-size: 1.75vmin;
-  color: grey;
   text-transform: uppercase;
 }
 

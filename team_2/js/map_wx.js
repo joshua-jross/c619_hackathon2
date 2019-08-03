@@ -1,22 +1,22 @@
 
-function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: { lat: 38.95, lng: -94.63 },
-      zoom: 4
-    });
-    map.addListener("click", function (e) {
-      console.log('e ', e);
-      latitude = e.latLng.lat();
-      longitude = e.latLng.lng();
-      console.log('lat', latitude);
-      console.log('long', longitude);
+// function initMap() {
+//     map = new google.maps.Map(document.getElementById('map'), {
+//       center: { lat: 38.95, lng: -94.63 },
+//       zoom: 4
+//     });
+//     map.addListener("click", function (e) {
+//       console.log('e ', e);
+//       latitude = e.latLng.lat();
+//       longitude = e.latLng.lng();
+//       console.log('lat', latitude);
+//       console.log('long', longitude);
 
-      weatherInfo();
-      flikrSearch();
+//       weatherInfo();
+//       flikrSearch();
 
 
-    });
-  }
+//     });
+//   }
 
 function addClickHandlers(){
   $('#submitPhotoFilter').on('click', function () {
@@ -28,10 +28,12 @@ $('#submitRangeFilter').on('click', function () {
   rangeFilter = $('#rangeFilter').val();
   console.log('clicked sumbit rangeFilter', this);
   console.log('rangeFilter :', rangeFilter);
+
 });
 }
 
 function weatherInfo(){
+  console.log('weatherInfo');
   // url seperate then query string ?
       // rewrite with jquery.ajax getJSON is shorthand
       // .param() is another way to do query string.

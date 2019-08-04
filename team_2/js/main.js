@@ -1,28 +1,37 @@
-
 $(document).ready(initializeApp);
-var latitude = "33.69";
-var longitude = "-117.83";
-// var map;
-var photoFilter = "cats"
-var rangeFilter = 50;
+var defaultLat = 33.69;
+var defaultLon = -117.83;
+var latitude = defaultLat;
+var longitude = defaultLon;
+var defaultPhoto = "cats"
+var defaultRange = 50;
+var appMap = null;
+var flikrPhotoSearch = null;
+var weatherIcon;
 
-var latLonGlobal;
 function initializeApp(){
-  var appMap = new ApiMap(38.95, -94.63, 4,'map');
+  weatherInfo();
+  appMap = new DisplayMap(38.95, -94.63, 4, 'map');
   appMap.initMap();
   appMap.addMapListener();
-  latLonGlobal = appMap.getLatLonClick();
 
-
+  var flickrApiKey = "98721ce410e380c81dc67cf4214fd2a6";
+  flickrPhotoSearch = new FlickrPhotoSearch(flickrApiKey);
+  // flickrPhotoSearch.setPosition(defaultLat, defaultLon)
+  flickrPhotoSearch.addClickHandlers('#photoFilter','#submitPhotoFilter');
+  appMap.addClickCallback(flickrPhotoSearch.setPosition);
 
   var hero = new Superhero();
   var superheroes = hero.getSuperheroes();
+  // appMap.addClickCallback( superheroes.updateSuperhero )
 
   var nasa = new Nasa();
   var asteroids = nasa.getAsteroids();
+  // appMapp.addClickCallback( asteroids.handleImpact );
 
   var yelpApi = new Yelp();
   var yelpDataAccess = yelpApi.getYelpData();
+  // appMap.addClickCallback( yelpApi.getRestaurantsForLocation );
 
   // addClickHandlers();
 }

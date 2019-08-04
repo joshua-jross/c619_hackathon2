@@ -8,16 +8,19 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_hLk7PSfWGdfOf0OCRgVdtx7zr-xzZQw"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="js/flickr.js"></script>
-  <!-- <script src="js/map_wx.js"></script> -->
+  <script src="js/display_wx.js"></script>
   <script src="js/nasa.js"></script>
   <script src="js/superheroes.js"></script>
   <script src="js/yelp.js"></script>
-  <script src="js/api_map.js"></script>
+  <script src="js/display_map.js"></script>
   <script src="js/main.js"></script>
   <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_hLk7PSfWGdfOf0OCRgVdtx7zr-xzZQw&callback=initMap" async defer></script> -->
 </head>
 
 <body>
+  <audio id="impact">
+    <source src="audio/falling_rock.wav" type="audio/mpeg">
+  </audio>
   <div class="upperContainer">
     <div class="mapContainer">
       <div class="googleMap" id="map"></div>
@@ -35,12 +38,9 @@
 
   <div class="middleContainer">
       <div class="flickrInput">
-          <div>Filter</div>
+          <div>Flickr</div>
           <input type="text" id="photoFilter">
           <button id="submitPhotoFilter">Submit</button>
-          <div>Range</div>
-          <input type="text" id="rangeFilter">
-          <button id="submitRangeFilter">Submit</button>
       </div>
       <div class="yelpBox">
         <div>Yelp</div>

@@ -1,10 +1,13 @@
 
 class FlickrPhotoSearch{
   constructor (apiKey){
+    this.renderFlickrSearch = this.renderFlickrSearch.bind(this);
+    this.flickrSuccess = this.flickrSuccess.bind(this);
+    this.flickrError = this.flickrError.bind(this);
     this.addClickHandlers = this.addClickHandlers.bind(this);
     this.handleClickHandlers = this.handleClickHandlers.bind(this);
     this.setPosition = this.setPosition.bind(this);
-    this.getPhotoLatLon = this.getPhotoLatLon.bind(this);
+    // this.getPhotoLatLon = this.getPhotoLatLon.bind(this);
     // this.renderFlickrSearch = this.renderFlickrSearch.bind(this);
     this.apiKey = apiKey;
     this.flickrUrl = "https://api.flickr.com/services/rest/?method=flickr.photos.search";
@@ -18,7 +21,8 @@ class FlickrPhotoSearch{
   }
   // url: `${this.flickrUrl}&api_key=${this.apiKey}&${this.formatCallback}
   //       &bbox=${latLonBox}&text=${queryFilter}`,
-  renderFlickrSearch(rangeFilter, queryFilter){
+  renderFlickrSearch(queryFilter){
+    var rangeFilter = 100;
     console.log('renderFlickrSearch');
     var rightLongitude = (this.longitude + rangeFilter / 30).toFixed(2)
     var rightLatitude = (this.latitude + rangeFilter / 30).toFixed(2);
@@ -35,25 +39,58 @@ class FlickrPhotoSearch{
       data: {
         bbox: latLonBox,
         text: queryFilter
-      }
-    }
-
-    $.ajax(settings).done(function ( response ) {
-      console.log('success');
-      var photoInfo = response.photos.photo;
-      console.log('photoInfo',photoInfo.length);
-      for (var photoIndex = 0; photoIndex < photoInfo.length; photoIndex++){
-        // $.each(response.photos.photo, function (index, photoInfo) {
-        var farmId = photoInfo[photoIndex].farm;
-        var serverId = photoInfo[photoIndex].server;
-        var id = photoInfo[photoIndex].id;
-        var secret = photoInfo[photoIndex].secret;
-        $("#flickr").append('<img src="https://farm' + farmId + '.staticflickr.com/'
-          + serverId + '/' + id + '_' + secret + '.jpg"/>');
-      // })
-      }
-    });
+      },
+      success: this.flickrSuccess,
+      error: this.flickrError
+    };
+    $.ajax(settings);
   }
+
+  flickrSuccess(response, status){
+    console.log("Flickr Success response", response);
+    console.log("Flickr Success status", status);
+    this.flickrData = response;
+    console.log('this.flickrData',this.flickrData);
+    var photoInfo = response.photos.photo;
+    console.log('photoInfo', photoInfo.length);
+    for (var photoIndex = 0; photoIndex < photoInfo.length; photoIndex++) {
+      var farmId = photoInfo[photoIndex].farm;
+      var serverId = photoInfo[photoIndex].server;
+      var id = photoInfo[photoIndex].id;
+      var secret = photoInfo[photoIndex].secret;
+      $("#flickr").append('<img src="https://farm' + farmId + '.staticflickr.com/'
+        + serverId + '/' + id + '_' + secret + '.jpg"/>');
+    }
+    // this.render();
+    // this.applyClickHandler();
+  }
+
+  flickrError(response, status) {
+    console.log("Flickr Error response", response);
+    console.log("Flickr Error status", status);
+  }
+
+
+// render(){
+//   this.yelpContainer.empty();
+//   var currentResult = 0;
+//   var lengthOfResults = this.yelpListResults.length;
+  //   $.ajax(settings).done(function ( response ) {
+  //     console.log('success');
+  //     var photoInfo = response.photos.photo;
+  //     console.log('photoInfo',photoInfo.length);
+  //     for (var photoIndex = 0; photoIndex < photoInfo.length; photoIndex++){
+  //       // $.each(response.photos.photo, function (index, photoInfo) {
+  //       var farmId = photoInfo[photoIndex].farm;
+  //       var serverId = photoInfo[photoIndex].server;
+  //       var id = photoInfo[photoIndex].id;
+  //       var secret = photoInfo[photoIndex].secret;
+  //       $("#flickr").append('<img src="https://farm' + farmId + '.staticflickr.com/'
+  //         + serverId + '/' + id + '_' + secret + '.jpg"/>');
+  //     // })
+  //     }
+  //   });
+  // }
 
   getPhotoLatLon(){
     console.log('getPhotoLatLon');
@@ -66,7 +103,7 @@ class FlickrPhotoSearch{
 
   handleClickHandlers(){
     var queryFilter = $(this.queryElementId).val();
-    this.renderFlickrSearch(100, queryFilter);
+    this.renderFlickrSearch(queryFilter);
   }
 
   getFlikrData(){

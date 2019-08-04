@@ -1,8 +1,8 @@
 
 class FlickrPhotoSearch{
   constructor (apiKey){
-    this.renderFlickrSearch = this.renderFlickrSearch.bind(this);
-    this.flickrSuccess = this.flickrSuccess.bind(this);
+    this.getFlickrData = this.getFlickrData.bind(this);
+    this.renderFlickr = this.renderFlickr.bind(this);
     this.flickrError = this.flickrError.bind(this);
     this.addClickHandlers = this.addClickHandlers.bind(this);
     this.handleClickHandlers = this.handleClickHandlers.bind(this);
@@ -21,9 +21,9 @@ class FlickrPhotoSearch{
   }
   // url: `${this.flickrUrl}&api_key=${this.apiKey}&${this.formatCallback}
   //       &bbox=${latLonBox}&text=${queryFilter}`,
-  renderFlickrSearch(queryFilter){
+  getFlickrData(queryFilter){
     var rangeFilter = 100;
-    console.log('renderFlickrSearch');
+    console.log('getFlickData');
     var rightLongitude = (this.longitude + rangeFilter / 30).toFixed(2)
     var rightLatitude = (this.latitude + rangeFilter / 30).toFixed(2);
     var leftLongitude = (this.longitude - rangeFilter / 30).toFixed(2);
@@ -40,19 +40,16 @@ class FlickrPhotoSearch{
         bbox: latLonBox,
         text: queryFilter
       },
-      success: this.flickrSuccess,
+      success: this.renderFlickr,
       error: this.flickrError
     };
     $.ajax(settings);
   }
 
-  flickrSuccess(response, status){
-    console.log("Flickr Success response", response);
-    console.log("Flickr Success status", status);
+  renderFlickr(response, status){
     this.flickrData = response;
     console.log('this.flickrData',this.flickrData);
     var photoInfo = response.photos.photo;
-    console.log('photoInfo', photoInfo.length);
     for (var photoIndex = 0; photoIndex < photoInfo.length; photoIndex++) {
       var farmId = photoInfo[photoIndex].farm;
       var serverId = photoInfo[photoIndex].server;
@@ -61,36 +58,13 @@ class FlickrPhotoSearch{
       $("#flickr").append('<img src="https://farm' + farmId + '.staticflickr.com/'
         + serverId + '/' + id + '_' + secret + '.jpg"/>');
     }
-    // this.render();
-    // this.applyClickHandler();
+    this.getPhotoLatLon();
   }
 
   flickrError(response, status) {
     console.log("Flickr Error response", response);
     console.log("Flickr Error status", status);
   }
-
-
-// render(){
-//   this.yelpContainer.empty();
-//   var currentResult = 0;
-//   var lengthOfResults = this.yelpListResults.length;
-  //   $.ajax(settings).done(function ( response ) {
-  //     console.log('success');
-  //     var photoInfo = response.photos.photo;
-  //     console.log('photoInfo',photoInfo.length);
-  //     for (var photoIndex = 0; photoIndex < photoInfo.length; photoIndex++){
-  //       // $.each(response.photos.photo, function (index, photoInfo) {
-  //       var farmId = photoInfo[photoIndex].farm;
-  //       var serverId = photoInfo[photoIndex].server;
-  //       var id = photoInfo[photoIndex].id;
-  //       var secret = photoInfo[photoIndex].secret;
-  //       $("#flickr").append('<img src="https://farm' + farmId + '.staticflickr.com/'
-  //         + serverId + '/' + id + '_' + secret + '.jpg"/>');
-  //     // })
-  //     }
-  //   });
-  // }
 
   getPhotoLatLon(){
     console.log('getPhotoLatLon');
@@ -103,7 +77,7 @@ class FlickrPhotoSearch{
 
   handleClickHandlers(){
     var queryFilter = $(this.queryElementId).val();
-    this.renderFlickrSearch(queryFilter);
+    this.getFlickrData(queryFilter);
   }
 
   getFlikrData(){

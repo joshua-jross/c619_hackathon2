@@ -30,11 +30,22 @@ class DisplayMap {
     this.map.addListener("click", this.handleMapClick );
   }
   handleMapClick( event ){
-    console.log('event ', event);
+    $('#impact')[0].play();
     this.clickLatitude = event.latLng.lat();
     this.clickLongitude = event.latLng.lng();
     console.log('click lat :', this.clickLatitude);
     console.log('clik long :', this.clickLongitude);
+    var clickLatLon = {lat: this.clickLatitude, lng: this.clickLongitude}
+    var impact = 'images/impact_icon2.png'
+    var marker = new google.maps.Marker({
+      position: clickLatLon,
+      map: this.map,
+      animation: google.maps.Animation.DROP,
+      icon: impact,
+      title: 'Ground Zero'
+    });
+    marker.setMap(this.map);
+
     for( var callbackIndex = 0; callbackIndex < this.clickCallbackList.length; callbackIndex++){
       this.clickCallbackList[callbackIndex]( this.getLatLonClick() );
       console.log("clickCallbacklist", this.clickCallbackList[callbackIndex])
@@ -45,7 +56,7 @@ class DisplayMap {
   }
   renderMapIcon( type, location, icon, clickCallback ){
     //var type = 'yelp'
-    //var location = {lat: 37.769, lng: -122.446};
+    //var position = {lat: 37.769, lng: -122.446};
     //var icon = 'images/smurf.jpg'
     //var clickCallback = function(){}
   console.log('renderMapIcon');
@@ -55,9 +66,10 @@ class DisplayMap {
     var marker = new google.maps.Marker({
       position: location,
       map: this.map,
-      icon: icon,
+      icon: icon
     });
     this.markerStorage[type].push( marker );
+    marker.setMap(this.map);
   }
 removeAllMarkersByType( type ){
     for( var markerI = 0; markerI < this.markerStorage[type].length; markerI++){

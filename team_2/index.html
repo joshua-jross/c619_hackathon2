@@ -8,7 +8,7 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_hLk7PSfWGdfOf0OCRgVdtx7zr-xzZQw"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="js/flickr.js"></script>
-  <!-- <script src="js/map_wx.js"></script> -->
+  <script src="js/display_wx.js"></script>
   <script src="js/nasa.js"></script>
   <script src="js/superheroes.js"></script>
   <script src="js/yelp.js"></script>
@@ -18,6 +18,9 @@
 </head>
 
 <body>
+  <audio id="impact">
+    <source src="audio/falling_rock.wav" type="audio/mpeg">
+  </audio>
   <div class="upperContainer">
     <div class="mapContainer">
       <div class="googleMap" id="map"></div>
@@ -37,8 +40,6 @@
       <div class="flickrInput">
           <div>Flickr</div>
           <input type="text" id="photoFilter">
-          <!-- <div>Range</div>
-          <input type="text" id="rangeFilter"> -->
           <button id="submitPhotoFilter">Submit</button>
       </div>
       <div class="yelpBox">

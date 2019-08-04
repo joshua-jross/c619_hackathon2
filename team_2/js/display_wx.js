@@ -40,8 +40,8 @@ function weatherInfo(){
   $.getJSON("http://api.openweathermap.org/data/2.5/weather?APPID=e9ca034e50ecf7c0b99d25a7290a0a56" +
     "&units=imperial&lat=" + latitude.toFixed(1) + "&lon=" + longitude.toFixed(1), function (data) {
       console.log('data :', data);
-      var weatherIcon = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
-      $('.weatherIcon').attr('src', weatherIcon);
+      weatherIcon = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+      // $('.weatherIcon').attr('src', weatherIcon);
       var weatherTemp = Math.round(data.main.temp);
       $('.weatherTemp').text(weatherTemp + " F");
       var weatherDescription = data.weather[0].main;

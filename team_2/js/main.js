@@ -7,8 +7,10 @@ var defaultPhoto = "cats"
 var defaultRange = 50;
 var appMap = null;
 var flikrPhotoSearch = null;
+var weatherIcon;
 
 function initializeApp(){
+  weatherInfo();
   appMap = new DisplayMap(38.95, -94.63, 4, 'map');
   appMap.initMap();
   appMap.addMapListener();

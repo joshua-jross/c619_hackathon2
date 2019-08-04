@@ -16,17 +16,13 @@ class DisplayMap {
   }
 
   initMap(){
-    console.log('initMap');
-    console.log('domElementId :', this.domElementId);
     this.map = new google.maps.Map(document.getElementById(this.domElementId), {
       center: { lat: this.latCenter, lng: this.lonCenter },
       zoom: this.zoom
     });
-    console.log('map object :', this.map)
   }
 
   addMapListener(){
-    console.log('addMapListener');
     this.map.addListener("click", this.handleMapClick );
   }
   handleMapClick( event ){
@@ -48,7 +44,6 @@ class DisplayMap {
 
     for( var callbackIndex = 0; callbackIndex < this.clickCallbackList.length; callbackIndex++){
       this.clickCallbackList[callbackIndex]( this.getLatLonClick() );
-      console.log("clickCallbacklist", this.clickCallbackList[callbackIndex])
     }
   }
   renderMapCircle(something){

@@ -1,31 +1,31 @@
 
-class FlikrPhotoSearch{
+class FlickrPhotoSearch{
   constructor (apiKey){
     this.addClickHandlers = this.addClickHandlers.bind(this);
     this.handleClickHandlers = this.handleClickHandlers.bind(this);
+    this.setPosition = this.setPosition.bind(this);
     this.apiKey = apiKey;
-    this.flikrUrl = "https://api.flickr.com/services/rest/?method=flickr.photos.search";
+    this.flickrUrl = "https://api.flickr.com/services/rest/?method=flickr.photos.search";
     this.formatCallback = "format=json&nojsoncallback=1";
-    this.flikrData ={};
+    this.flickrData ={};
     this.submitElementId;
     this.rangeElementId;
     this.queryElementId;
+    this.latitude = 33.7;
+    this.longitude= -117.8;
   }
 
-  renderFlikrSearch(latitude, longitude, rangeFilter, queryFilter){
-    console.log('rangeFilter :' ,rangeFilter);
-    if (latitude < 0){
-      rangFilter *= -1;
-    }
-    var rightLongitude = (longitude + rangeFilter / 30).toFixed(2)
-    var rightLatitude = (latitude + rangeFilter / 30).toFixed(2);
-    var leftLongitude = (longitude - rangeFilter / 30).toFixed(2);
-    var leftLatitude = (latitude - rangeFilter / 30).toFixed(2);
-    var latLonBox = `${leftLongitude},${leftLatitude},${rightLatitude},${rightLatitude}`;
+  renderFlickrSearch(rangeFilter, queryFilter){
+    console.log(this.latitude, this.longitude);
+    var rightLongitude = (this.longitude + rangeFilter / 30).toFixed(2)
+    var rightLatitude = (this.latitude + rangeFilter / 30).toFixed(2);
+    var leftLongitude = (this.longitude - rangeFilter / 30).toFixed(2);
+    var leftLatitude = (this.latitude - rangeFilter / 30).toFixed(2);
+    var latLonBox = `${leftLongitude},${leftLatitude},${rightLongitude},${rightLatitude}`;
     var settings = {
       "async": true,
       "crossDomain": true,
-      "url": `${this.flikrUrl}&api_key=${this.apiKey}&${this.formatCallback}
+      "url": `${this.flickrUrl}&api_key=${this.apiKey}&${this.formatCallback}
         &bbox=${latLonBox}&text=${queryFilter}`,
       "method": "GET",
       "headers": {}
@@ -38,7 +38,6 @@ class FlikrPhotoSearch{
         var id = photoInfo.id;
         var secret = photoInfo.secret;
         var tittle = photoInfo.title;
-        // console.log(farmId + ", " + serverId + ", " + id + ", " + secret + tittle);
         $("#flickr").append('<img src="https://farm' + farmId + '.staticflickr.com/'
           + serverId + '/' + id + '_' + secret + '.jpg"/>');
       });
@@ -46,8 +45,6 @@ class FlikrPhotoSearch{
   }
 
   addClickHandlers(queryElementId, submitElementId){
-    console.log('flikr addClickHanders')
-    console.log('flikr domElement :', this.submitElementId);
     // this.rangeElementId = rangeElementId;
     this.queryElementId = queryElementId;
     this.submitElementId = submitElementId;
@@ -55,17 +52,18 @@ class FlikrPhotoSearch{
   }
 
   handleClickHandlers(){
-    console.log('flikr handleClickHandlers');
-
     var queryFilter = $(this.queryElementId).val();
     // var rangeFilter = $(this.queryElementId).val();
-    console.log('queryFilter :', queryFilter);
     // console.log('rangeFilter :', rangeFilter);
-    this.renderFlikrSearch(defaultLat, defaultLon, 100, queryFilter);
+    this.renderFlickrSearch(100, queryFilter);
   }
 
   getFlikrData(){
-    console.log('getFlikrData ', this.flikrData);
-    return this.flikrData;
+    return this.flickrData;
+  }
+
+  setPosition(position){
+    this.latitude = position.clickLat;
+    this.longitude = position.clickLon;
   }
 }

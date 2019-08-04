@@ -37,6 +37,7 @@ class DisplayMap {
     console.log('clik long :', this.clickLongitude);
     for( var callbackIndex = 0; callbackIndex < this.clickCallbackList.length; callbackIndex++){
       this.clickCallbackList[callbackIndex]( this.getLatLonClick() );
+      console.log("clickCallbacklist", this.clickCallbackList[callbackIndex])
     }
   }
   renderMapCircle(something){

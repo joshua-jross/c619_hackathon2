@@ -8,15 +8,16 @@ var defaultRange = 50;
 var appMap = null;
 var flikrPhotoSearch = null;
 
-
 function initializeApp(){
   appMap = new DisplayMap(38.95, -94.63, 4, 'map');
   appMap.initMap();
   appMap.addMapListener();
 
-  var flikrApiKey = "98721ce410e380c81dc67cf4214fd2a6";
-  flikrPhotoSearch = new FlikrPhotoSearch(flikrApiKey);
-  flikrPhotoSearch.addClickHandlers('#photoFilter','#submitPhotoFilter');
+  var flickrApiKey = "98721ce410e380c81dc67cf4214fd2a6";
+  flickrPhotoSearch = new FlickrPhotoSearch(flickrApiKey);
+  // flickrPhotoSearch.setPosition(defaultLat, defaultLon)
+  flickrPhotoSearch.addClickHandlers('#photoFilter','#submitPhotoFilter');
+  appMap.addClickCallback(flickrPhotoSearch.setPosition);
 
   var hero = new Superhero();
   var superheroes = hero.getSuperheroes();

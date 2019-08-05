@@ -1,231 +1,183 @@
         /* Optional: Makes the sample page fill the window. */
-body{
-  /* border: 6px solid black;
-  font-size: 0;
-  padding: 0; */
+.nav-tabs,
+.tabTitle{
+  background-color: #ddb330;
+  color: #9a261c;
 }
-.upperContainer{
-  /* border: 1px solid black; */
-  /* background-color: lightcoral; */
-  height: 70vh;
-  margin-left: 25px;
-  margin-top: 25px;
-  margin-right: 25px;
-}
-/* font-family: 'Rajdhani', sans-serif;
-font-family: 'Bangers', cursive; */
 .mapContainer{
-  /* border: 1px solid black; */
-  height: 98%;
+  height: 95vh;
+   width: 55vw;
   display: inline-block;
-  vertical-align: top;
   margin-right: 25px;
-  margin-left:2px;
-  margin-top: 2px;
+  margin-left:25px;
+  margin-top: 25px;
   border: 4px solid black;
-
+  background-color: #ddb330;
 }
-.superheroBox,
-.asteroidBox{
-  /* border: 1px solid black; */
+.googleMap {
+  height: 80%;
+  width: 90%;
+  top: 5%;
+  left: 5%;
+  /* padding: 5%; */
+}
+#menuContainer{
+  margin-top: 25px;
+  display: inline-block;
+  width: 38vw;
+  vertical-align: top;
+  overflow-y: auto;
+}
+.superheroBox{
   height: 100%;
+  max-width: 250px;
   display: inline-block;
   vertical-align: top;
-  /* padding-left: 2vw; */
+  /* background-color: #065d52; */
 }
-.superheroBox{
-  width: 19vw;
-  /* margin-left: 25px; */
-  display: inline-block;
-}
-
-.superheroContainer{
-  font-family: 'Bangers', cursive;
-  font-size: 1em;
-  vertical-align: top;
-  display: inline-block;
-}
-
-.mapContainer,
-.superheroBox{
-  background-color: #065d52;
-}
-
 .asteroidBox{
+  height: 70vh;
+  display: inline-block;
+  vertical-align: top;
   background-color: #9a261c;
   width: 15.3vw;
-  /* border: 1px solid black; */
 }
+.superheroContainer{
+  font-family: 'Bangers', cursive;
+  vertical-align: top;
+  display: inline-block;
 
+}
 .asteroidTitle{
   font-family: 'Bangers', cursive;
   font-size: 2em;
   text-align: center;
+  font-family: 'Rajdhani', sans-serif;
 }
-
 .asteroidContainer{
   background-color: #9a261c;
   border: 4px solid black;
-  height: 75%;
   width: 90%;
   margin-top: 12px;
   margin-left: 9px;
-
 }
-
-.googleMap {
-  height: 100%;
-  width: 55vw;
-  /* padding: 5%; */
-}
-
-img{
-  height: auto;
+.superheroContainer img{
+  height: 50vh;
   max-width: 100%;
 }
-
-.yelpOutput{
-  position: absolute;
-}
-
-.middleContainer{
-  margin-top: 25px;
-  margin-right: 25px;
-  margin-left: 25px;
-  /* border: 1px solid black; */
-  background-color: #ddb330;
-  height: 20vh;
-}
-
-.flickrInput,
-.yelpBox,
-.weatherDisplay,
-.instructionDisplay{
-  /* border: 1px solid black; */
+.flickrInput{
   height: 95%;
   display: inline-block;
-}
-
-.flickrInput{
-  /* background-color: pink; */
   width: 24vw;
-  padding: 50px;
 }
-
 .yelpBox{
-  /* background-color: orange; */
+  height: 95%;
   width: 24vw;
+  display: inline-block;
 }
-
+#flickr{
+  width: 100%;
+  /* padding: 1px; */
+}
 .weatherDisplay{
-  /* background-color: yellow; */
-  width: 15vw;
+  width: 18vw;
+  top: 3.5vw;
+  background-color: lightgrey;
+  position: relative;
+  margin-left: 5%;
+  border-radius: 25px;
+  border: 4px solid black;
 }
-
 .instructionDisplay{
+  /* height: 95%; */
+  display: inline-block;
   background-color: #9a261c;
-  height: 18vh;
-  width: 20vw;
+  height: 50vh;
+  width: 18vw;
   vertical-align: top;
   font-family: 'Bangers', cursive;
-  font-size: 2em;
+  font-size: 25px;
   text-align: center;
-  position: absolute;
-  top: 560px;
-  left: 1150px;
+  overflow-y: none;
 }
-
-.lowerContainer{
-  /* border: 1px solid black; */
-  /* background-color: lightgreen; */
-  height: 45vh;
-}
-
-.flickrOutput,
-.yelpOutput {
-  border: 1px solid black;
+.flickrOutput{
+  background-color: #9a261c;
+  height: 100%;
+  width: 36.4vw;
+  margin-top: 25px;
+  margin-left: 25px;
+  border: 5px solid black;
   height: 95%;
   display: inline-block;
   padding-left: 2vw;
+  overflow-y: auto;
 }
-
-.flickrOutput{
-  background-color: #065d52;
-  width: 65vw;
-  /* margin: 25px; */
-  margin-top: 25px;
-  margin-left: 25px;
-  height: 10000px;
-
+.flickrApiContainer{
+  /* border: 4px solid black; */
+  height: 70vh;
 }
-
+.flickrOutput img {
+  max-width: 250px;
+  /* margin:3px; */
+  border:6px solid black;
+}
 .yelpOutput{
   background-color: #9a261c;
-  width: 23.8vw;
-  height: 10000px;
+  width: 27vw;
   margin-left: 25px;
   margin-top: 25px;
+  border: 1px solid black;
+  height: 75vh;
+  /* display: inline-block; */
+  padding-left: 1vw;
+  position: fixed;
+  overflow-y: auto;
 }
-
 .weatherIcon{
   height: 1%;
   position: relative;
-  /* left: 10%; */
 }
-
-.location,
+.location{
+  position: relative;
+  left: 3.5vw;
+  font-family: 'Rajdhani', sans-serif;
+}
 .weatherTemp,
 .weatherDescription {
-/* display: inline-block; */
+display: inline-block;
+    font-family: 'Rajdhani', sans-serif;
 }
-
-.flickrApiContainer{
-  height: 40%
-}
-
-.flickrOutput img {
-  max-width: 250px;
-  margin:3px;
-  border:6px solid black;
-/* .flickrApiContainer  */
-}
-
 .yelpResultContainer{
   right: 0;
   height: 10vmin;
   width: 48vmin;
   border: 2px solid black;
 }
-
 .yelpName{
   font-size: 2vmin;
   padding-top: 5px;
   text-decoration: none;
   color: black;
 }
-
 .yelpAddress{
-  font-size: 1.5vmin;
+  font-size: 1.3vmin;
   color: grey;
 }
-
 .yelpRatingReviewPrice{
   font-size: 1.5vmin;
    color: grey;
 }
-
 .yelpName,
 .yelpAddress,
 .yelpRatingReviewPrice,
 .yelpCategory {
-  color: white;
+  color: rgb(219, 204, 204);
+  font-family: 'Rajdhani', sans-serif;
 }
-
 .yelpCategory{
   font-size: 1.75vmin;
   text-transform: uppercase;
 }
-
 .yelpPhoto{
   height: 10vmin;
   width: 10vmin;

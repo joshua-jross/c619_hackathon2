@@ -3,6 +3,9 @@ class Nasa{
   constructor(){
     this.nasaAsteroidConfig = {};
     this.getAsteroids = this.getAsteroids.bind(this);
+    this.setPosition = this.setPosition.bind(this);
+    this.addClickHandler = this.addClickHandler.bind(this);
+    this.handleClick = this.handleClick.bind(this);
 
     this.yesterday;
     this.yesterdayDate;
@@ -16,11 +19,13 @@ class Nasa{
     this.asteroidNameArray = [];
     this.asteroidDiameter;
     this.asteroidDiameterArray = [];
-    this.asteroidRadius;
     this.craterRadius;
     this.craterRadiusArray = [];
     this.blastRadius;
     this.blastRadiusArray = [];
+
+    this.latitude = 33.69;
+    this.longitude = -117.83;
   }
 
   getAsteroids(){
@@ -75,12 +80,10 @@ class Nasa{
       this.asteroidDiameter = this.asteroidObject[this.yesterday][asteroidIndex].estimated_diameter.meters.estimated_diameter_max;
       this.asteroidDiameterArray.push(this.asteroidDiameter);
 
-      this.asteroidRadius = this.asteroidDiameter / 2;
-
-      this.craterRadius = this.asteroidRadius * 5.435;
+      this.craterRadius = this.asteroidDiameter * 10.87;
       this.craterRadiusArray.push(this.craterRadius);
 
-      this.blastRadius = this.asteroidRadius * 6.8;
+      this.blastRadius = this.asteroidDiameter * 13.6;
       this.blastRadiusArray.push(this.blastRadius);
     }
 
@@ -105,10 +108,10 @@ class Nasa{
       $(".diameterDiv").append(diameterList);
       $(".asteroidContainer").append(diameterDiv);
     }
-    console.log(this.asteroidObject);
-    console.log(this.asteroidNameArray);
+    // console.log(this.asteroidObject);
+    // console.log(this.asteroidNameArray);
+    console.log(this.asteroidDiameter);
     console.log(this.asteroidDiameterArray);
-    console.log(this.asteroidRadius);
     console.log(this.craterRadius);
     console.log(this.blastRadius);
     console.log(this.blastRadiusArray);
@@ -120,7 +123,12 @@ class Nasa{
   }
 
   handleClick(){
-    appMap.renderMapCircle(this.craterRadius, "#ffe680", "#ffe680");
-    appMap.renderMapCircle(this.blastRadius, "#ff751a", "#ff751a");
+    console.log("asteroid clicked");
+    appMap.renderMapCircle();
+  }
+
+  setPosition(position){
+    this.latitude = position.clickLat;
+    this.longitude = position.clickLon;
   }
 }

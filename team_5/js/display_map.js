@@ -2,6 +2,7 @@ class DisplayMap {
   constructor(latCenter, lonCenter, zoom, domElementId){
     this.handleMapClick = this.handleMapClick.bind( this );
     this.addMapListener = this.addMapListener.bind(this);
+    this.renderMapCircle = this.renderMapCircle.bind(this);
     this.clickLatitude = 33.66;
     this.clickLongitude = -117.80;
     this.latCenter = latCenter;
@@ -31,7 +32,7 @@ class DisplayMap {
     $('#impact')[0].play();
     this.clickLatitude = event.latLng.lat();
     this.clickLongitude = event.latLng.lng();
-    
+
     var clickLatLon = {lat: this.clickLatitude, lng: this.clickLongitude}
     var impact = 'images/impact_icon2.png'
     var marker = new google.maps.Marker({
@@ -48,17 +49,28 @@ class DisplayMap {
     }
   }
 
-  renderMapCircle(radius, strokeColor, fillColor){
-    // console.log('renderMapCircle');
-    var clickLatLon = {lat: this.clickLatitude, lng: this.clickLongitude};
-    var mapCircle = new google.maps.Circle({
-      center: clickLatLon,
-      radius: radius,
-      strokeColor: strokeColor,
+  renderMapCircle(){
+    console.log("renderMapCircle");
+    var location = {
+      losangeles: {
+        center: {lat: 34.052, lng: -118.243},
+      }
+    };
+
+    var map = new google.maps.Map(document.getElementById(this.domElementId), {
+      center: location.losangeles.center,
+      zoom: 13
+    });
+
+    var circle = new google.maps.Circle({
+      strokeColor: '#FF0000',
       strokeOpacity: 0.8,
       strokeWeight: 2,
-      fillColor: fillColor,
-      fillOpacity: 0.4
+      fillColor: '#FF0000',
+      fillOpacity: 0.35,
+      map: map,
+      center: location.losangeles.center,
+      radius: 2802.71467275656
     });
   }
 

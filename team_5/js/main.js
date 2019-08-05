@@ -32,8 +32,8 @@ function initializeApp(){
 
   var nasa = new Nasa();
   var asteroids = nasa.getAsteroids();
-  asteroids.addClickHandler(".asteroidBox");
-  // appMapp.addClickCallback( asteroids.handleImpact );
+  var impactRadii = nasa.addClickHandler(".asteroidContainer");
+  appMap.addClickCallback(nasa.setPosition);
 
   var yelpApi = new Yelp();
   var yelpDataAccess = yelpApi.getYelpData();

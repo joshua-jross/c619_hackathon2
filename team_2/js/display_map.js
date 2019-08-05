@@ -49,23 +49,24 @@ class DisplayMap {
   renderMapCircle(something){
   console.log('renderMapCircle');
   }
-  renderMapIcon() {
-  // renderMapIcon( type, location, icon, clickCallback ){
+  renderMapIcon(icon, location){
     //var type = 'yelp'
     //var position = {lat: 37.769, lng: -122.446};
     //var icon = 'images/smurf.jpg'
     //var clickCallback = function(){}
-  console.log('renderMapIcon');
     // if(!this.markerStorage.hasOWnProperty(type)){
     //   this.markerStorage[type] = [];
     // }
-    // var marker = new google.maps.Marker({
-    //   position: location,
-    //   map: this.map,
-    //   icon: icon
-    // });
+    var marker = new google.maps.Marker({
+      position: location,
+      map: this.map,
+      icon: icon
+    });
     // this.markerStorage[type].push( marker );
-    // marker.setMap(this.map);
+    var clickLatLon = { lat: this.clickLatitude, lng: this.clickLongitude }
+    marker.setMap(this.map);
+    this.map.setCenter(clickLatLon);
+    this.map.setZoom(6);
   }
 removeAllMarkersByType( type ){
     for( var markerI = 0; markerI < this.markerStorage[type].length; markerI++){

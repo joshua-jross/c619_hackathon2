@@ -52,14 +52,11 @@ class FlickrPhotoSearch{
       var serverId = photoInfo[photoIndex].server;
       var id = photoInfo[photoIndex].id;
       var secret = photoInfo[photoIndex].secret;
-      var photoUrl = '<img src="https://farm' + farmId + '.staticflickr.com/'
-        + serverId + '/' + id + '_' + secret + '.jpg"/>';
-      $("#flickr").append(photoUrl);
-      this.getPhotoLatLon(id, photoIndex);
-      appMap.renderMapIcon();
+      var photoUrl = "https://farm" + farmId + ".staticflickr.com/"
+        + serverId + "/" + id + "_" + secret + ".jpg";
+      $("#flickr").append("<img src=" + photoUrl + "/>");
+      this.renderPhotoLatLon(id, photoIndex, photoUrl);
     }
-    console.log('flickr photo data', this.flickrPhotoData);
-    console.log('flickr location data', this.flickrLocationData);
   }
 
   flickrError(response, status) {
@@ -67,7 +64,7 @@ class FlickrPhotoSearch{
     console.log("Flickr Error status", status);
   }
 
-  getPhotoLatLon(id, photoIndex){
+  renderPhotoLatLon(id, photoIndex, photoUrl){
     var settings = {
       async: true,
       crossDomain: true,
@@ -77,9 +74,22 @@ class FlickrPhotoSearch{
       data: {
         photo_id: id
       },
-      // jsonFlickrApi({ "photo": { "id":"34352648912", "location": { "latitude":"33.681442", "longitude":"-117.858879",
+
       success: function(response){
         this.flickrLocationData.push(response);
+        var image = {
+          url: photoUrl,
+          size: new google.maps.Size(30, 30),
+          origin: new google.maps.Point(0, 0)
+        }
+        var photoLocation =
+          { lat: parseInt(
+              this.flickrLocationData[photoIndex].photo.location.latitude, 10),
+            lng: parseInt(
+              this.flickrLocationData[photoIndex].photo.location.longitude, 10)
+          }
+        appMap.renderMapIcon(image, photoLocation);
+
       }.bind(this),
       error: this.flickrError
     };

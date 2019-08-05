@@ -60,12 +60,13 @@
   font-family: 'Rajdhani', sans-serif;
 }
 .asteroidContainer{
-  background-color:  #ddb330;
   border-radius: 7px;
   width: 90%;
   margin-top: 12px;
   margin-left: 9px;
-  color: black;
+  border: 1px solid white;
+  color: white;
+  font-size: 1.5em;
 }
 .superheroContainer img{
   height: 50vh;
@@ -135,7 +136,7 @@
 }
 .yelpOutput{
   background-color: #9a261c;
-  width: 27vw;
+  width: 26vw;
   margin-left: 25px;
   margin-top: 25px;
   /* border: 1px solid black; */
@@ -167,6 +168,7 @@
   height: 10vmin;
   width: 48vmin;
   border: 2px solid black;
+  border-radius: 5px;
 }
 .yelpName{
   font-size: 2vmin;
@@ -176,17 +178,17 @@
 }
 .yelpAddress{
   font-size: 1.3vmin;
-  color: grey;
+  color:white;
 }
 .yelpRatingReviewPrice{
   font-size: 1.5vmin;
-   color: grey;
+   color:white;
 }
 .yelpName,
 .yelpAddress,
 .yelpRatingReviewPrice,
 .yelpCategory {
-  color: rgb(219, 204, 204);
+  color: white;
   font-family: 'Rajdhani', sans-serif;
 }
 .yelpCategory{

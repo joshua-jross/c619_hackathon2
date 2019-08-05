@@ -19,6 +19,7 @@ function initializeApp(){
 
   var flickrApiKey = "98721ce410e380c81dc67cf4214fd2a6";
   flickrPhotoSearch = new FlickrPhotoSearch(flickrApiKey);
+
   flickrPhotoSearch.addClickHandlers('#photoFilter','#submitPhotoFilter');
 
   appMap.addClickCallback(flickrPhotoSearch.setPosition);
@@ -27,11 +28,21 @@ function initializeApp(){
 
   var hero = new Superhero();
   var superheroes = hero.getSuperheroes();
-  // appMap.addClickCallback( superheroes.updateSuperhero )
+  // appMap.addClickCallback( superheroes.updateSuperhero );
 
   var nasa = new Nasa();
   var asteroids = nasa.getAsteroids();
   // appMapp.addClickCallback( asteroids.handleImpact );
+  // var mapCircle = new google.maps.Circle({
+  //   center: "latitude/longitude",
+  //   radius: "blast radius",
+  //   strokeColor: "#0000FF",
+  //   strokeOpacity: 0.8,
+  //   strokeWeight: 2,
+  //   fillColor: "#0000FF",
+  //   fillOpacity: 0.4
+  // });
+  // $(".asteroidButton").on("click", mapCircle);
 
   var yelpApi = new Yelp();
   var yelpDataAccess = yelpApi.getYelpData();

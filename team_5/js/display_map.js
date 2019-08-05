@@ -6,6 +6,7 @@ class DisplayMap {
     this.clickLongitude = -117.80;
     this.latCenter = latCenter;
     this.lonCenter = lonCenter;
+    this.latLon;
     this.zoom = zoom;
     this.domElementId = domElementId;
     this.map = {};
@@ -25,12 +26,12 @@ class DisplayMap {
   addMapListener(){
     this.map.addListener("click", this.handleMapClick );
   }
+
   handleMapClick( event ){
     $('#impact')[0].play();
     this.clickLatitude = event.latLng.lat();
     this.clickLongitude = event.latLng.lng();
-    console.log('click lat :', this.clickLatitude);
-    console.log('clik long :', this.clickLongitude);
+    
     var clickLatLon = {lat: this.clickLatitude, lng: this.clickLongitude}
     var impact = 'images/impact_icon2.png'
     var marker = new google.maps.Marker({
@@ -46,14 +47,19 @@ class DisplayMap {
       this.clickCallbackList[callbackIndex]( this.getLatLonClick() );
     }
   }
-  renderMapCircle(something){
-  console.log('renderMapCircle');
+
+  renderMapCircle(){
+    // console.log('renderMapCircle');
   }
+
   renderMapIcon(icon, location){
+
     //var type = 'yelp'
     //var position = {lat: 37.769, lng: -122.446};
     //var icon = 'images/smurf.jpg'
     //var clickCallback = function(){}
+
+
     // if(!this.markerStorage.hasOWnProperty(type)){
     //   this.markerStorage[type] = [];
     // }
@@ -68,17 +74,20 @@ class DisplayMap {
     this.map.setCenter(clickLatLon);
     this.map.setZoom(6);
   }
-removeAllMarkersByType( type ){
+
+  removeAllMarkersByType( type ){
     for( var markerI = 0; markerI < this.markerStorage[type].length; markerI++){
       this.markerStorage[type][markerI].setMap( null );
     }
     this.markerStorage[type] = [];
   }
+
   getLatLonClick(){
-    console.log('getLatLonClick');
-    var latLon = { clickLat: this.clickLatitude, clickLon: this.clickLongitude }
-    return latLon;
+    // console.log('getLatLonClick');
+    this.latLon = { clickLat: this.clickLatitude, clickLon: this.clickLongitude }
+    return this.latLon;
   }
+
   addClickCallback( callback ){
     this.clickCallbackList.push( callback );
   }

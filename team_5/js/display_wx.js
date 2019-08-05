@@ -29,5 +29,4 @@ class DisplayWeather{
     this.latitude = position.clickLat;
     this.longitude = position.clickLon;
   }
-
 }

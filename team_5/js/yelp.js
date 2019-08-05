@@ -25,10 +25,10 @@ class Yelp{
   }
   yelpSearch(){
     if (this.yelpInputBox.val() === ""){
-      console.log("nothing to update")
+      // console.log("nothing to update")
     } else {
       this.searchValue = this.yelpInputBox.val();
-      console.log("clickhappened");
+      // console.log("clickhappened");
       this.getYelpData();
     }
   }
@@ -51,18 +51,18 @@ class Yelp{
     $.ajax( this.yelpAjaxConfig );
   }
   yelpSuccess(response, status){
-    console.log("Success response", response);
-    console.log("Success status", status);
-    console.log("Diving Deeper ", response.businesses[0]);
-    console.log("and deeper", response.businesses[0].name);
+    // console.log("Success response", response);
+    // console.log("Success status", status);
+    // console.log("Diving Deeper ", response.businesses[0]);
+    // console.log("and deeper", response.businesses[0].name);
     this.yelpListResults = response.businesses;
-    console.log(this.yelpListResults);
+    // console.log(this.yelpListResults);
     this.render();
     this.applyClickHandler();
   }
   yelpError(response, status) {
-    console.log("Error response", response);
-    console.log("Error status", status);
+    // console.log("Error response", response);
+    // console.log("Error status", status);
   }
   render(){
     this.yelpContainer.empty();

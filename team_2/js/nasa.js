@@ -3,18 +3,22 @@ class Nasa{
   constructor(){
     this.nasaAsteroidConfig = {};
     this.getAsteroids = this.getAsteroids.bind(this);
+
     this.yesterday;
     this.yesterdayDate;
     this.yesterdayMonth;
     this.yesterdayYear;
 
-    this.asteroidObject
+    this.asteroidObject;
     this.asteroidCount;
     this.asteroidArray;
     this.asteroidName;
-    this.asteroidSize;
     this.asteroidNameArray = [];
-    this.asteroidSizeArray = [];
+    this.asteroidDiameter;
+    this.asteroidDiameterArray = [];
+    this.asteroidRadius;
+    this.blastRadius;
+    this.blastRadiusArray = [];
   }
 
   getAsteroids(){
@@ -70,18 +74,27 @@ class Nasa{
       this.asteroidName = this.asteroidObject[this.yesterday][asteroidIndex].name;
       this.asteroidNameArray.push(this.asteroidName);
 
-      this.asteroidSize = this.asteroidObject[this.yesterday][asteroidIndex].estimated_diameter.feet.estimated_diameter_max;
-      this.asteroidSizeArray.push(this.asteroidSize);
+      this.asteroidDiameter = this.asteroidObject[this.yesterday][asteroidIndex].estimated_diameter.meters.estimated_diameter_max;
+      this.asteroidDiameterArray.push(this.asteroidDiameter);
+
+      this.asteroidRadius = this.asteroidDiameter / 2;
+
+      this.blastRadius = this.asteroidRadius * 5.435;
+
+      this.blastRadiusArray.push(this.blastRadius);
     }
     console.log(this.asteroidNameArray);
-    console.log(this.asteroidSizeArray);
+    console.log(this.asteroidDiameterArray);
+    console.log(this.asteroidRadius);
+    console.log(this.blastRadius);
+    console.log(this.blastRadiusArray);
 
     var nameDiv = $("<div>");
-    nameDiv.text("Asteroid Names: " + this.asteroidNameArray.join(", "));
+    nameDiv.text("Asteroid Name: " + this.asteroidNameArray.join(", "));
     $(".asteroidContainer").append(nameDiv);
 
-    var sizeDiv = $("<div>");
-    sizeDiv.text("Asteroid Sizes: " + this.asteroidSizeArray.join(", "));
-    $(".asteroidContainer").append(sizeDiv);
+    var diameterDiv = $("<div>");
+    diameterDiv.text("Asteroid Diameter (in meters): " + this.asteroidDiameterArray.join(", "));
+    $(".asteroidContainer").append(diameterDiv);
   }
 }

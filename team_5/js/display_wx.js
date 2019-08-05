@@ -33,13 +33,13 @@
 // }
 
 function weatherInfo(){
-  console.log('weatherInfo');
+  // console.log('weatherInfo');
   // url seperate then query string ?
       // rewrite with jquery.ajax getJSON is shorthand
       // .param() is another way to do query string.
   $.getJSON("http://api.openweathermap.org/data/2.5/weather?APPID=e9ca034e50ecf7c0b99d25a7290a0a56" +
     "&units=imperial&lat=" + latitude.toFixed(1) + "&lon=" + longitude.toFixed(1), function (data) {
-      console.log('data :', data);
+      // console.log('data :', data);
       weatherIcon = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
       // $('.weatherIcon').attr('src', weatherIcon);
       var weatherTemp = Math.round(data.main.temp);

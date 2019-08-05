@@ -8,11 +8,10 @@ class Superhero{
     this.superheroImage;
     this.superheroName;
     this.superheroBase;
+    this.superheroAffiliation;
   }
 
   getSuperheroes(){
-    console.log("getSuperheroes called");
-
     this.randomNum = Math.floor((Math.random() * 731) + 1);
 
     this.superheroConfig = {
@@ -24,13 +23,13 @@ class Superhero{
         id: this.randomNum
       },
       success: function(response){
-        console.log("success", response);
+        // console.log("success", response);
 
         this.superheroObject = response;
         this.render();
       }.bind(this),
       error: function(response){
-        console.log("error");
+        // console.log("error");
       }
     }
     $.ajax(this.superheroConfig);
@@ -46,13 +45,20 @@ class Superhero{
 
     this.superheroName = this.superheroObject.name;
     var nameDiv = $("<div>");
-    nameDiv.text("Hero Name: " + this.superheroName);
+    nameDiv.addClass("nameDiv");
+    nameDiv.text("Name: " + this.superheroName);
 
     this.superheroBase = this.superheroObject.work.base;
     var baseDiv = $("<div>");
+    baseDiv.addClass("baseDiv");
     baseDiv.text("Home Base: " + this.superheroBase);
 
+    this.superheroAffiliation = this.superheroObject.connections["group-affiliation"];
+    var affiliationDiv = $("<div>");
+    affiliationDiv.addClass("affiliationDiv");
+    affiliationDiv.text("Affiliation: " + this.superheroAffiliation);
+
     $(".superheroContainer").append(imageDiv);
-    $(".instructionDisplay").append(nameDiv, baseDiv);
+    $(".instructionDisplay").append(nameDiv, baseDiv, affiliationDiv);
   }
 }

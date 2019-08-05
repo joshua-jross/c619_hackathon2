@@ -1,3 +1,8 @@
+
+body{
+  position: fixed;
+}
+
 .nav-tabs,
 .tabTitle{
   background-color: #ddb330;
@@ -52,15 +57,23 @@
 .asteroidTitle{
   font-family: 'Bangers', cursive;
   font-size: 2em;
+  color: rgb(219, 204, 204);
   text-align: center;
   font-family: 'Rajdhani', sans-serif;
 }
 .asteroidContainer{
-  background-color:  #ddb330;
   border-radius: 7px;
   width: 90%;
   margin-top: 12px;
-  margin-left: 22px;
+
+  margin-left: 9px;
+    /* color: rgb(219, 204, 204); */
+
+  border: 1px solid white;
+  color: white;
+  font-size: 1.5em;
+
+  /* margin-left: 22px; */
   color: black;
   font-family: 'Bangers', cursive;
   font-size: 15px;
@@ -77,18 +90,7 @@
   height: 50vh;
   max-width: 100%;
 }
-.instructionDisplay{
-  height: 95%;
-  display: inline-block;
-  background-color: #9a261c;
-  height: 50vh;
-  width: 18vw;
-  vertical-align: top;
-  font-family: 'Bangers', cursive;
-  font-size: 20px;
-  text-align: left;
-  overflow-y: none;
-}
+
 .flickrInput{
   height: 95%;
   display: inline-block;
@@ -113,6 +115,31 @@
 .weatherContainer .weatherTemp{
   font-weight: bolder;
 }
+
+.instructionDisplay{
+  display: inline-block;
+  background-color: #9a261c;
+  height: 50vh;
+  width: 18vw;
+  vertical-align: top;
+  font-family: 'Bangers', cursive;
+  font-size: 25px;
+    color: rgb(219, 204, 204);
+  text-align: center;
+  overflow-y: none;
+}
+/* .instructionDisplay{
+  height: 95%;
+  display: inline-block;
+  background-color: #9a261c;
+  height: 50vh;
+  width: 18vw;
+  vertical-align: top;
+  font-family: 'Bangers', cursive;
+  font-size: 20px;
+  text-align: left;
+  overflow-y: none;
+} */
 .flickrOutput{
   background-color: #9a261c;
   height: 100%;
@@ -126,14 +153,23 @@
   border-radius: 7px;
 }
 .flickrApiContainer{
-  height: 70vh;
+
+  height: 73.9vh;
+
+  /* height: 70vh; */
+
 }
 .flickrOutput img {
+
+
+  border:6px solid black;
+
   max-width: 220px;
+
 }
 .yelpOutput{
   background-color: #9a261c;
-  width: 27vw;
+  width: 26vw;
   margin-left: 25px;
   margin-top: 25px;
   height: 75vh;
@@ -154,15 +190,17 @@
 }
 .weatherTemp,
 .weatherDescription {
-  display: inline-block;
-  font-family: 'Rajdhani', sans-serif;
-  font-weight: bolder;
+
+display: inline-block;
+font-family: 'Rajdhani', sans-serif;
+
 }
 .yelpResultContainer{
   right: 0;
   height: 10vmin;
   width: 48vmin;
   border: 2px solid black;
+  border-radius: 5px;
 }
 .yelpName{
   font-size: 2vmin;
@@ -172,17 +210,17 @@
 }
 .yelpAddress{
   font-size: 1.3vmin;
-  color: grey;
+  color:white;
 }
 .yelpRatingReviewPrice{
   font-size: 1.5vmin;
-   color: grey;
+   color:white;
 }
 .yelpName,
 .yelpAddress,
 .yelpRatingReviewPrice,
 .yelpCategory {
-  color: rgb(219, 204, 204);
+  color: white;
   font-family: 'Rajdhani', sans-serif;
 }
 .yelpCategory{

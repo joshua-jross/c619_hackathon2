@@ -31,8 +31,7 @@ class DisplayMap {
     $('#impact')[0].play();
     this.clickLatitude = event.latLng.lat();
     this.clickLongitude = event.latLng.lng();
-    // console.log('click lat :', this.clickLatitude);
-    // console.log('clik long :', this.clickLongitude);
+    
     var clickLatLon = {lat: this.clickLatitude, lng: this.clickLongitude}
     var impact = 'images/impact_icon2.png'
     var marker = new google.maps.Marker({
@@ -53,23 +52,27 @@ class DisplayMap {
     // console.log('renderMapCircle');
   }
 
-  renderMapIcon() {
-  // renderMapIcon( type, location, icon, clickCallback ){
+  renderMapIcon(icon, location){
+
     //var type = 'yelp'
     //var position = {lat: 37.769, lng: -122.446};
     //var icon = 'images/smurf.jpg'
     //var clickCallback = function(){}
-  // console.log('renderMapIcon');
+
+
     // if(!this.markerStorage.hasOWnProperty(type)){
     //   this.markerStorage[type] = [];
     // }
-    // var marker = new google.maps.Marker({
-    //   position: location,
-    //   map: this.map,
-    //   icon: icon
-    // });
+    var marker = new google.maps.Marker({
+      position: location,
+      map: this.map,
+      icon: icon
+    });
     // this.markerStorage[type].push( marker );
-    // marker.setMap(this.map);
+    var clickLatLon = { lat: this.clickLatitude, lng: this.clickLongitude }
+    marker.setMap(this.map);
+    this.map.setCenter(clickLatLon);
+    this.map.setZoom(6);
   }
 
   removeAllMarkersByType( type ){

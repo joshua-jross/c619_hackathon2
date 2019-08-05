@@ -12,7 +12,6 @@ class Yelp{
     this.yelpContainer = $(".yelpContainer");
     this.yelpInput = $(".yelpBox");
     this.yelpInputBox = $(".yelpInput");
-    this.location = "Davis";
     this.searchValue = "coffee";
     this.yelpName;
     this.yelpAddress;
@@ -42,7 +41,6 @@ class Yelp{
         "Authorization": "Bearer K86dXVGhsx9t-SEYXVTpp6lJr2CBl3aLKBcXnOMdf8tUp0mBe9rzWbSu-5LGORVbqnNCWrAMngd0-VvR7IugL9R-fwgPeEFOhDeFo_APDkIhIlTICac9Omtp_gNBXXYx"
       },
       data: {
-        // 'location': this.location,
         'term': this.searchValue,
         'latitude': latitude,
         'longitude': longitude

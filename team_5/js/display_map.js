@@ -74,6 +74,21 @@ class DisplayMap {
     });
   }
 
+  renderMarker(location){
+    var clickLatLon = location;
+    var impact = 'images/impact_icon2.png'
+    var marker = new google.maps.Marker({
+    position: location,
+    map: this.map,
+    animation: google.maps.Animation.DROP,
+    title: 'Yelp'
+   });
+   console.log(location)
+    marker.setMap(this.map);
+    this.map.setCenter(clickLatLon);
+    this.map.setZoom(15);
+   }
+
   renderMapIcon(icon, location){
 
     //var type = 'yelp'

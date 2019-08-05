@@ -7,8 +7,6 @@ class FlickrPhotoSearch{
     this.addClickHandlers = this.addClickHandlers.bind(this);
     this.handleClickHandlers = this.handleClickHandlers.bind(this);
     this.setPosition = this.setPosition.bind(this);
-    // this.getPhotoLatLon = this.getPhotoLatLon.bind(this);
-    // this.renderFlickrSearch = this.renderFlickrSearch.bind(this);
     this.apiKey = apiKey;
     this.flickrUrl = "https://api.flickr.com/services/rest/?method=flickr.photos.search";
     this.formatCallback = "format=json&nojsoncallback=1";
@@ -20,8 +18,7 @@ class FlickrPhotoSearch{
     this.latitude = 33.7;
     this.longitude= -117.8;
   }
-  // url: `${this.flickrUrl}&api_key=${this.apiKey}&${this.formatCallback}
-  //       &bbox=${latLonBox}&text=${queryFilter}`,
+
   getFlickrData(queryFilter){
     var rangeFilter = 100;
     console.log('getFlickData');
@@ -59,6 +56,7 @@ class FlickrPhotoSearch{
         + serverId + '/' + id + '_' + secret + '.jpg"/>';
       $("#flickr").append(photoUrl);
       this.getPhotoLatLon(id, photoIndex);
+      appMap.renderMapIcon();
     }
     console.log('flickr photo data', this.flickrPhotoData);
     console.log('flickr location data', this.flickrLocationData);

@@ -22,8 +22,6 @@ class Nasa{
   }
 
   getAsteroids(){
-    console.log("getAsteroids called");
-
     this.yesterday = new Date();
     this.yesterday.setDate(this.yesterday.getDate() -1);
     this.yesterdayDate = this.yesterday.getDate();
@@ -36,7 +34,6 @@ class Nasa{
       this.yesterdayMonth = "0" + this.yesterdayMonth;
     }
     this.yesterday = [this.yesterdayYear, this.yesterdayMonth, this.yesterdayDate].join('-');
-    console.log(this.yesterday);
 
     this.nasaAsteroidConfig = {
       url: "https://api.nasa.gov/neo/rest/v1/feed",
@@ -47,13 +44,13 @@ class Nasa{
         start_date: this.yesterday,
       },
       success: function(response){
-        console.log("success", response);
+        // console.log("success", response);
 
         this.asteroidObject = response.near_earth_objects;
         this.render();
       }.bind(this),
       error: function(response){
-        console.log("error");
+        // console.log("error");
       }
     }
     $.ajax(this.nasaAsteroidConfig);
@@ -61,14 +58,13 @@ class Nasa{
 
   render(){
     this.asteroidCount = this.asteroidObject[this.yesterday].length;
-    console.log(this.asteroidCount);
 
     var countDiv = $("<div>");
     countDiv.text("Asteroid Count: " + this.asteroidCount);
+    countDiv.addClass("countDiv");
     $(".asteroidContainer").append(countDiv);
 
     this.asteroidArray = this.asteroidObject[this.yesterday];
-    console.log(this.asteroidArray);
 
     for(var asteroidIndex = 0; asteroidIndex < this.asteroidArray.length; asteroidIndex++){
       this.asteroidName = this.asteroidObject[this.yesterday][asteroidIndex].name;
@@ -83,18 +79,32 @@ class Nasa{
 
       this.blastRadiusArray.push(this.blastRadius);
     }
+
+    var nameDiv = $("<div>");
+    nameDiv.text("Asteroid Name: ");
+    nameDiv.addClass("nameDiv asteroidButton");
+    for(var nameIndex = 0; nameIndex < this.asteroidNameArray.length; nameIndex++){
+      var nameList = $("<li>");
+      nameList.text(this.asteroidNameArray[nameIndex]);
+      nameList.addClass("nameList");
+      $(".nameDiv").append(nameList);
+      $(".asteroidContainer").append(nameDiv);
+    }
+
+    var diameterDiv = $("<div>");
+    diameterDiv.text("Asteroid Diameter (in meters): ");
+    diameterDiv.addClass("diameterDiv");
+    for(var diameterIndex = 0; diameterIndex < this.asteroidDiameterArray.length; diameterIndex++){
+      var diameterList = $("<li>");
+      diameterList.text(this.asteroidDiameterArray[diameterIndex]);
+      diameterList.addClass("diameterList");
+      $(".diameterDiv").append(diameterList);
+      $(".asteroidContainer").append(diameterDiv);
+    }
     console.log(this.asteroidNameArray);
     console.log(this.asteroidDiameterArray);
     console.log(this.asteroidRadius);
     console.log(this.blastRadius);
     console.log(this.blastRadiusArray);
-
-    var nameDiv = $("<div>");
-    nameDiv.text("Asteroid Name: " + this.asteroidNameArray.join(", "));
-    $(".asteroidContainer").append(nameDiv);
-
-    var diameterDiv = $("<div>");
-    diameterDiv.text("Asteroid Diameter (in meters): " + this.asteroidDiameterArray.join(", "));
-    $(".asteroidContainer").append(diameterDiv);
   }
 }

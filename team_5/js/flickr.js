@@ -21,7 +21,7 @@ class FlickrPhotoSearch{
 
   getFlickrData(queryFilter){
     var rangeFilter = 100;
-    console.log('getFlickData');
+    // console.log('getFlickData');
     var rightLongitude = (this.longitude + rangeFilter / 30).toFixed(2)
     var rightLatitude = (this.latitude + rangeFilter / 30).toFixed(2);
     var leftLongitude = (this.longitude - rangeFilter / 30).toFixed(2);
@@ -58,13 +58,13 @@ class FlickrPhotoSearch{
       this.getPhotoLatLon(id, photoIndex);
       appMap.renderMapIcon();
     }
-    console.log('flickr photo data', this.flickrPhotoData);
-    console.log('flickr location data', this.flickrLocationData);
+    // console.log('flickr photo data', this.flickrPhotoData);
+    // console.log('flickr location data', this.flickrLocationData);
   }
 
   flickrError(response, status) {
-    console.log("Flickr Error response", response);
-    console.log("Flickr Error status", status);
+    // console.log("Flickr Error response", response);
+    // console.log("Flickr Error status", status);
   }
 
   getPhotoLatLon(id, photoIndex){
